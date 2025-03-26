@@ -26,10 +26,10 @@ de serviço, emissão de relatórios e um controle de contas a receber.
 ### Matriz de Competências
 
 | Membro  | Competências                                                                    |
-| ------- | ------------------------------------------------------------------------------- | --- |
+| ------- | ------------------------------------------------------------------------------- |
 | Taciano | Desenvolvedor Java, Junit, Eclipse, JSP, JSF, Hibernate, Matemática, Latex, etc |
 | Artur   | ...                                                                             |
-| Halyson | Desenvolvedor Node, Nest, Express, Fastify, PostgreSQL, MySQL                   |     |
+| Halyson | Desenvolvedor Node, Nest, Express, Fastify, PostgreSQL, MySQL                   |
 | Isayan  | ...                                                                             |
 | Matheus | Desenvolvedor React, Next                                                       |
 
