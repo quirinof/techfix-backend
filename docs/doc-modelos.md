@@ -55,6 +55,7 @@ classDiagram
         +Funcionario tecnico
         +Cliente cliente
         +Equipamento equipamento
+        +OrdemServico ordemServico
     }
 
     class ContaReceber {
@@ -99,4 +100,20 @@ classDiagram
         Concluida
         Cancelada
     }
+```
+
+## Modelo de Dados (Entidade-Relacionamento)
+
+```mermaid
+erDiagram
+    Cliente ||--o{ Equipamento : possui
+    Cliente ||--o{ OrdemServico : solicita
+    Funcionario ||--o{ OrdemServico : atende
+    Funcionario ||--o{ VisitaTecnica : realiza
+    Equipamento }o--o{ OrdemServico : vinculado
+    OrdemServico ||--o{ ItemPeca : utiliza
+    ItemPeca }|--|| Peca : referencia
+    OrdemServico ||--o| ContaReceber : gera
+    VisitaTecnica }o--|| Equipamento : para
+    VisitaTecnica }|--|| OrdemServico : relacionada
 ```
