@@ -5,10 +5,10 @@ link: https://docs.google.com/document/d/1DPBcyGHgflmz5RDsZQ2X8KVBPoEF5PdAz9BBNF
 
 ## Descrição do Projeto
 
-O projeto consiste no desenvolvimento de um sistema de gestão de assistência
+O projeto "TechFix" consiste no desenvolvimento de um sistema de gestão de assistência
 técnica de informática, que permitirá o gerenciamento eficiente das atividades
 relacionadas ao reparo, manutenção e suporte técnico de equipamentos e sistemas
-de informática. O sistema será voltado para empresas ou profissionais que oferecem
+de informática. Ele será voltado para empresas ou profissionais que oferecem
 serviços na área, proporcionando uma ferramenta ideal para administrar as operações
 do negócio. Contará com funcionalidades como controle de clientes, controle de ordens
 de serviço, emissão de relatórios e um controle de contas a receber.
@@ -19,19 +19,19 @@ de serviço, emissão de relatórios e um controle de contas a receber.
 | ------- | ----------------- | ------------------------------- |
 | Taciano | Cliente Professor | taciano@bsi.ufrn.br             |
 | Artur   | Analista          | artur.candeia.086@ufrn.edu.br   |
-| Halyson | Líder técnico     | halysonsa@gmail.com             |
+| Halyson | Desenvolvedor     | halysonsa@gmail.com             |
 | Isayan  | Testador          | isayannogueira@gmail.com        |
-| Matheus | Desenvolvedor     | matheus.quirino.122@ufrn.edu.br |
+| Matheus | Líder técnico     | matheus.quirino.122@ufrn.edu.br |
 
 ### Matriz de Competências
 
 | Membro  | Competências                                                                    |
 | ------- | ------------------------------------------------------------------------------- |
 | Taciano | Desenvolvedor Java, Junit, Eclipse, JSP, JSF, Hibernate, Matemática, Latex, etc |
-| Artur   | ...                                                                             |
+| Artur   | Desenvolvedor Next.js                                                           |
 | Halyson | Desenvolvedor Node, Nest, Express, Fastify, PostgreSQL, MySQL                   |
-| Isayan  | ...                                                                             |
-| Matheus | Desenvolvedor React, Next                                                       |
+| Isayan  | Desenvolvedor Next.js                                                           |
+| Matheus | Desenvolvedor js - node, react, next                                            |
 
 ## Perfis dos Usuários
 
