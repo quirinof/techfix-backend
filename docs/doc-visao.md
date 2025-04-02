@@ -43,76 +43,78 @@ O sistema poderá ser utilizado por um único usuário, ele será o administrado
 
 ## Lista de Requisitos Funcionais
 
-### Entidade Cliente - US01 - Manter Cliente
+### Entidade cliente/pessoa - US01 - Manter cliente/pessoa
 
-Um cliente é uma pessoa física que solicita serviços de assistência técnica. Possui CPF, nome, telefone, e-mail e endereço.
+Um cliente é uma pessoa física que solicita serviços de assistência técnica. Informa documento(cpf), nome, telefone, e-mail, endereço.
 
-| Requisito                    | Descrição                                                                                                                             | Ator          |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| RF01.01 - Cadastrar Cliente  | Adiciona novo cliente informando: CPF (opcional), nome (obrigatório), telefone (obrigatório), e-mail (opcional), endereço (opcional). | Administrador |
-| RF01.02 - Consultar Clientes | Lista clientes com filtros por: nome, CPF, telefone ou e-mail.                                                                        | Administrador |
-| RF01.03 - Alterar Cliente    | Atualiza dados de um cliente existente (exceto CPF).                                                                                  | Administrador |
-| RF01.04 - Excluir Cliente    | Remove cliente do sistema (apenas se não houver ordens de serviço vinculadas).                                                        | Administrador |
-
----
-
-### Entidade Funcionário - US02 - Manter Funcionário
-
-Um funcionário é um técnico ou administrador do sistema. Possui CPF, nome, cargo, telefone e e-mail.
-
-| Requisito                       | Descrição                                                                                                           | Ator          |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------- |
-| RF02.01 - Cadastrar Funcionário | Adiciona novo funcionário informando: CPF (obrigatório), nome (obrigatório), cargo (obrigatório), telefone, e-mail. | Administrador |
-| RF02.02 - Consultar Funcionário | Lista funcionários com filtros por: nome, CPF ou cargo.                                                             | Administrador |
-| RF02.03 - Alterar Funcionário   | Atualiza dados de um funcionário (exceto CPF).                                                                      | Administrador |
-| RF02.04 - Excluir Funcionário   | Desativa cadastro do funcionário (não remove fisicamente).                                                          | Administrador |
+| Requisito                  | Descrição                                                                      | Ator          |
+| -------------------------- | ------------------------------------------------------------------------------ | ------------- |
+| RF01.01 - Cadastrar pessoa | Adiciona nova pessoa informando: documento, nome, telefone, e-mail, endereço.  | Administrador |
+| RF01.02 - Consultar pessoa | Lista pessoas com filtros por nome                                             | Administrador |
+| RF01.03 - Alterar pessoa   | Atualiza dados de um cliente existente (exceto CPF).                           | Administrador |
+| RF01.04 - Excluir pessoa   | Remove cliente do sistema (apenas se não houver ordens de serviço vinculadas). | Administrador |
 
 ---
 
-### Entidade Ordem de Serviço (OS) - US03 - Manter OS
+### Entidade Endereço - US02 - Manter Endereço
 
-Uma ordem de serviço (OS) registra a solicitação de reparo de um equipamento. Possui número único, status, data de abertura, descrição do problema e valor.
+Gerenciar endereços vinculados a clientes, onde é informado estado, cidade, bairro, rua, numero, complemento.
+
+| Código  | Descrição                                 | Ator          |
+| ------- | ----------------------------------------- | ------------- |
+| RF02.01 | Vincular endereço a um cliente existente  | Administrador |
+| RF02.02 | Editar informações de endereço            | Administrador |
+| RF02.03 | Listar endereços de um cliente específico | Administrador |
+
+---
+
+### Entidade Equipamento - US03 - Manter Equipamento
+
+Um equipamento é um dispositivo pertencente a uma pessoa. Possui dispositivo (tipo), marca, modelo e número de série.
+
+| Requisito                       | Descrição                                                                                                     | Ator          |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------- |
+| RF03.01 - Cadastrar Equipamento | Adiciona novo equipamento informando: dispositivo, marca, modelo, número de série e cliente/pessoa vinculado. | Administrador |
+| RF03.02 - Consultar Equipamento | Lista equipamentos com filtros por: cliente, tipo, marca ou modelo.                                           | Administrador |
+| RF03.03 - Excluir Equipamento   | Remove equipamento (apenas se não estiver vinculado a OS ativa).                                              | Administrador |
+
+---
+
+### Entidade Ordem de Serviço (OS) - US04 - Manter OS
+
+Uma ordem de serviço (OS) registra a solicitação de serviço para reparo técnico. Possui número único, status, data de abertura, descrição do problema e valor.
 
 | Requisito                  | Descrição                                                                                          | Ator          |
 | -------------------------- | -------------------------------------------------------------------------------------------------- | ------------- |
-| RF03.01 - Abrir OS         | Cria nova OS vinculada a um cliente e equipamento, informando: descrição do problema e prioridade. | Administrador |
-| RF03.02 - Consultar OS     | Lista OS com filtros por: número, cliente, status ou data.                                         | Administrador |
-| RF03.03 - Editar OS        | Atualiza dados da OS (exceto número), apenas se status for "Em andamento".                         | Administrador |
-| RF03.04 - Encerrar OS      | Finaliza OS informando: solução aplicada, peças utilizadas e valor final.                          |
-| RF03.05 - Emitir Relatório | Gera PDF da OS com detalhes do serviço, valores e assinatura do técnico.                           | Administrador |
+| RF02.01 - Abrir OS         | Cria nova OS vinculada a um cliente e equipamento, informando: descrição do problema e prioridade. | Administrador |
+| RF02.02 - Consultar OS     | Lista OS com filtros por: número, cliente, status ou data.                                         | Administrador |
+| RF02.03 - Editar OS        | Atualiza dados da OS (exceto número), apenas se status for "Em andamento".                         | Administrador |
+| RF02.04 - Encerrar OS      | Finaliza OS informando: solução aplicada, peças utilizadas e valor final.                          |
+| RF02.05 - Emitir Relatório | Gera PDF da OS com detalhes do serviço, valores e assinatura do técnico.                           | Administrador |
 
 ---
 
-### Entidade Equipamento - US04 - Manter Equipamento
+### Entidade Item de OS - US05 - Gerenciar Itens
 
-Um equipamento é um dispositivo pertencente a um cliente. Possui tipo (ex: notebook, smartphone), marca, modelo e número de série.
+Detalhar serviços específicos realizados em cada OS.
 
-| Requisito                       | Descrição                                                                                                                                            | Ator          |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| RF04.01 - Cadastrar Equipamento | Adiciona novo equipamento informando: tipo (obrigatório), marca (obrigatório), modelo (obrigatório), número de série (opcional) e cliente vinculado. | Administrador |
-| RF04.02 - Consultar Equipamento | Lista equipamentos com filtros por: cliente, tipo, marca ou modelo.                                                                                  | Administrador |
-| RF04.03 - Excluir Equipamento   | Remove equipamento (apenas se não estiver vinculado a OS ativa).                                                                                     | Administrador |
-
----
-
-### Entidade Visita Técnica - US05 - Agendar Visita
-
-Uma visita técnica é um deslocamento agendado para reparo em campo. Possui data, horário, endereço e técnico responsável.
-
-| Requisito             | Descrição                                                                                                   | Ator          |
-| --------------------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
-| RF05 - Agendar Visita | Agenda visita informando: cliente (obrigatório), equipamento (opcional), data, horário (8h–18h) e endereço. | Administrador |
+| Código  | Descrição                          | Ator          |
+| ------- | ---------------------------------- | ------------- |
+| RF05.01 | Adicionar item de serviço à OS     | Administrador |
+| RF05.02 | Atualizar descrição/status do item | Administrador |
+| RF05.03 | Listar itens de uma OS específica  | Administrador |
 
 ---
 
-### Entidade Financeiro - US06/US07 - Gestão Financeira
+### Entidade Conta - US06 - Manter Conta
 
-Registra transações financeiras (contas a receber e despesas).
+Gerenciar pagamentos de serviços realizados. A conta é gerada a partir de uma ordem de serviço e possui valor, método e status de pagamento, data.
 
-| Requisito                      | Descrição                                                                                                                           | Ator          |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| RF06 - Registrar Conta Receber | Vincula pagamento a uma OS encerrada, informando: valor (obrigatório), forma de pagamento (à vista/parcelado) e data de vencimento. | Administrador |
-| RF07 - Pagar Conta             | Registra despesa informando: fornecedor (obrigatório), valor (obrigatório), descrição e data.                                       | Administrador |
+| Código  | Descrição                               | Ator          |
+| ------- | --------------------------------------- | ------------- |
+| RF05.01 | Gerar fatura vinculada à OS             | Administrador |
+| RF05.02 | Registrar pagamento e atualizar status  | Administrador |
+| RF05.03 | Consultar faturas por status ou período | Administrador |
 
 #### Descrição das Entidades
 
