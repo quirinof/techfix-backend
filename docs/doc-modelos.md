@@ -61,3 +61,15 @@ classDiagram
         pessoa_id : integer FK
     }
 ```
+
+## Modelo de Dados (Entidade-Relacionamento)
+
+```mermaid
+erDiagram
+    service_order ||--o{ service_order_item : "contém"
+    equipment ||--o{ service_order_item : "utilizado em"
+    person ||--o{ address : "possui"
+    person ||--o{ equipment : "cadastra"
+    person ||--o{ service_order : "solicita"
+    service_order ||--o{ bill : "gera"
+```
