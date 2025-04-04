@@ -131,14 +131,6 @@ classDiagram
 
 ```
 
-#### Descrição de enums
-
-enum statusOS { ABERTA, EM_ANDAMENTO, FINALIZADA, CANCELADA }
-enum statusItemOS { PENDENTE, EM_EXECUCAO, CONCLUIDO }
-enum dispositivo { NOTEBOOK, SMARTPHONE, TABLET, DESKTOP, OUTRO }
-enum metodoPagamento { DINHEIRO, CARTAO_CREDITO, CARTAO_DEBITO, PIX, BOLETO }
-enum statusConta { PENDENTE, PAGO, ATRASADO, CANCELADO }
-
 #### Descrição das entidades
 
 | Entidade               | Descrição                                                                                                                                                                                                                                                                                                                           |
@@ -149,6 +141,16 @@ enum statusConta { PENDENTE, PAGO, ATRASADO, CANCELADO }
 | **ordem_servico**      | Representa uma ordem de serviço solicitada por um cliente. Atributos: `id`, `descricao`, `status`, `orcamento`, `data_criacao`, `pessoa_id`. Métodos: `setDescricao()`, `setStatus()`, `setOrcamento()`, `getDescricao()`, `getStatus()`, `getOrcamento()`, `adicionarItem()`, `removerItem()`, `listarItensOrdemServico()`.        |
 | **item_ordem_servico** | Itens da ordem de serviço, representando partes do serviço realizadas em um equipamento. Atributos: `id`, `descricao`, `status`, `equipamento_id`, `ordem_servico_id`. Métodos: `setDescricao()`, `setStatus()`, `getDescricao()`, `getStatus()`, `associarEquipamento()`.                                                          |
 | **conta**              | Representa a cobrança de uma ordem de serviço. Atributos: `id`, `valor`, `metodo_pagamento`, `data_vencimento`, `status`, `ordem_servico_id`. Métodos: `setValor()`, `setMetodoPagamento()`, `setDataVencimento()`, `setStatus()`, `getValor()`, `getMetodoPagamento()`, `getDataVencimento()`, `getStatus()`, `atualizarStatus()`. |
+
+#### Descrição de enums
+
+| Enum            | Descrição                                               |
+| --------------- | ------------------------------------------------------- |
+| statusOS        | ABERTA, EM_ANDAMENTO, FINALIZADA ou CANCELADA.          |
+| statusItemOS    | PENDENTE, EM_EXECUCAO ou CONCLUIDO.                     |
+| dispositivo     | NOTEBOOK, SMARTPHONE, TABLET, DESKTOP ou OUTRO.         |
+| metodoPagamento | DINHEIRO, CARTAO_CREDITO, CARTAO_DEBITO, PIX ou BOLETO. |
+| statusConta     | PENDENTE, PAGA, ATRASADA ou CANCELADA.                  |
 
 ## Dicionário de Dados
 
