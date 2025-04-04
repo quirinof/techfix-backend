@@ -30,7 +30,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                       |                  |
 | --------------------- | ---------------- |
 | **Prioridade**        | Essencial        |
-| **Estimativa**        | 7-9 h            |
+| **Estimativa**        | 10h              |
 | **Tamanho Funcional** | 8 PF             |
 | **Analista**          | Artur            |
 | **Desenvolvedor**     | Halyson, Matheus |
@@ -44,3 +44,34 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA01.03**              | Exclusão de cliente existente, com confirmação                                                     |
 | **TA01.04**              | Edição dos dados de um cliente previamente cadastrado                                              |
 | **TA01.05**              | Visualização das informações completas de um cliente, incluindo endereço e equipamentos associados |
+
+### User Story US02 - Manter Endereço
+
+|               |                                                                                                                                                                                                                                  |
+| ------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | Esse processo é responsável por cadastrar, editar, excluir e visualizar os endereços associados a um cliente. Cada cliente pode ter múltiplos endereços, com informações como rua, número, complemento, bairro, cidade e estado. |
+
+| **Requisitos envolvidos** |                     |
+| ------------------------- | :------------------ |
+| US02.RF02.01              | Cadastrar endereço  |
+| US02.RF02.02              | Consultar endereços |
+| US02.RF02.03              | Editar endereço     |
+| US02.RF02.04              | Excluir endereço    |
+
+|                       |                  |
+| --------------------- | ---------------- |
+| **Prioridade**        | Essencial        |
+| **Estimativa**        | 6 h              |
+| **Tamanho Funcional** | 5 PF             |
+| **Analista**          | Artur            |
+| **Desenvolvedor**     | Halyson, Matheus |
+| **Testador**          | Isayan           |
+
+| Testes de Aceitação (TA) |                                                                         |
+| ------------------------ | ----------------------------------------------------------------------- |
+| **Código**               | **Descrição**                                                           |
+| **TA02.01**              | Cadastro de endereço válido associado a um cliente existente            |
+| **TA02.02**              | Cadastro de endereço com dados incompletos, esperando mensagens de erro |
+| **TA02.03**              | Edição de um endereço existente                                         |
+| **TA02.04**              | Exclusão de endereço, com confirmação                                   |
+| **TA02.05**              | Visualização da lista de endereços associados a um cliente              |
