@@ -1,7 +1,7 @@
 # Documento de Visão
 
 Documento construído a partido do **Modelo BSI - Doc 001 - Documento de Visão** que pode ser encontrado no
-link: https://docs.google.com/document/d/1DPBcyGHgflmz5RDsZQ2X8KVBPoEF5PdAz9BBNFyLa6A/edit?usp=sharing
+link: [Modelo](https://docs.google.com/document/d/1DPBcyGHgflmz5RDsZQ2X8KVBPoEF5PdAz9BBNFyLa6A/edit?usp=sharing)
 
 ## Descrição do Projeto
 
@@ -15,23 +15,21 @@ de serviço, emissão de relatórios e um controle de contas a receber.
 
 ## Equipe e Definição de Papéis
 
-| Membro  | Papel             | E-mail                          |
-| ------- | ----------------- | ------------------------------- |
-| Taciano | Cliente Professor | taciano@bsi.ufrn.br             |
-| Artur   | Analista          | artur.candeia.086@ufrn.edu.br   |
-| Halyson | Desenvolvedor     | halysonsa@gmail.com             |
-| Isayan  | Testador          | isayannogueira@gmail.com        |
-| Matheus | Líder técnico     | matheus.quirino.122@ufrn.edu.br |
+| Membro  | Papel         | E-mail                          |
+| ------- | ------------- | ------------------------------- |
+| Artur   | Analista      | artur.candeia.086@ufrn.edu.br   |
+| Halyson | Desenvolvedor | halysonsa@gmail.com             |
+| Isayan  | Testador      | isayannogueira@gmail.com        |
+| Matheus | Líder técnico | matheus.quirino.122@ufrn.edu.br |
 
 ### Matriz de Competências
 
-| Membro  | Competências                                                                    |
-| ------- | ------------------------------------------------------------------------------- |
-| Taciano | Desenvolvedor Java, Junit, Eclipse, JSP, JSF, Hibernate, Matemática, Latex, etc |
-| Artur   | Desenvolvedor Next.js                                                           |
-| Halyson | Desenvolvedor Node, Nest, Express, Fastify, PostgreSQL, MySQL                   |
-| Isayan  | Desenvolvedor Next.js                                                           |
-| Matheus | Desenvolvedor js - node, react, next                                            |
+| Membro  | Competências                                                                   |
+| ------- | ------------------------------------------------------------------------------ |
+| Artur   | HTML, CSS, JavaScript, React, Next                                             |
+| Halyson | HTML, CSS, JavaScript, Node, Nest, Express, Fastify, Prisma, PostgreSQL, MySQL |
+| Isayan  | HTML, CSS, JavaScript, React, Next                                             |
+| Matheus | HTML, CSS, JavaScript, Node, React, Next, PostgreSQL                           |
 
 ## Perfis dos Usuários
 
@@ -43,87 +41,77 @@ O sistema poderá ser utilizado por um único usuário, ele será o administrado
 
 ## Lista de Requisitos Funcionais
 
-### Entidade cliente/pessoa - US01 - Manter cliente/pessoa
+### Entidade cliente/pessoa - US01 - Manter cliente
 
-Um cliente é uma pessoa física que solicita serviços de assistência técnica. Informa documento(cpf), nome, telefone, e-mail, endereço.
-
-| Requisito                  | Descrição                                                                      | Ator          |
-| -------------------------- | ------------------------------------------------------------------------------ | ------------- |
-| RF01.01 - Cadastrar pessoa | Adiciona nova pessoa informando: documento, nome, telefone, e-mail, endereço.  | Administrador |
-| RF01.02 - Consultar pessoa | Lista pessoas com filtros por nome                                             | Administrador |
-| RF01.03 - Alterar pessoa   | Atualiza dados de um cliente existente (exceto CPF).                           | Administrador |
-| RF01.04 - Excluir pessoa   | Remove cliente do sistema (apenas se não houver ordens de serviço vinculadas). | Administrador |
+| Requisito                    | Descrição                              | Ator          |
+| ---------------------------- | -------------------------------------- | ------------- |
+| RF01.01 - Cadastrar clientes | Adiciona novo cliente                  | Administrador |
+| RF01.02 - Consultar clientes | Lista de clientes com filtros por nome | Administrador |
+| RF01.03 - Editar clientes    | Atualiza dados de um cliente existente | Administrador |
+| RF01.04 - Excluir clientes   | Remove cliente do sistema              | Administrador |
 
 ---
 
 ### Entidade Endereço - US02 - Manter Endereço
 
-Gerenciar endereços vinculados a clientes, onde é informado estado, cidade, bairro, rua, numero, complemento.
-
-| Código  | Descrição                                 | Ator          |
-| ------- | ----------------------------------------- | ------------- |
-| RF02.01 | Vincular endereço a um cliente existente  | Administrador |
-| RF02.02 | Editar informações de endereço            | Administrador |
-| RF02.03 | Listar endereços de um cliente específico | Administrador |
+| Código                        | Descrição                                   | Ator          |
+| ----------------------------- | ------------------------------------------- | ------------- |
+| RF02.01 - Cadastrar endereços | Adiciona endereço a um cliente existente    | Administrador |
+| RF02.02 - Consultar endereços | Lista endereços de um cliente específico    | Administrador |
+| RF02.03 - Editar endereços    | Edita informações de um endereço            | Administrador |
+| RF02.04 - Excluir endereços   | Exclui um endereço específico de um cliente | Administrador |
 
 ---
 
 ### Entidade Equipamento - US03 - Manter Equipamento
 
-Um equipamento é um dispositivo pertencente a uma pessoa. Possui dispositivo (tipo), marca, modelo e número de série.
-
-| Requisito                       | Descrição                                                                                                     | Ator          |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------- |
-| RF03.01 - Cadastrar Equipamento | Adiciona novo equipamento informando: dispositivo, marca, modelo, número de série e cliente/pessoa vinculado. | Administrador |
-| RF03.02 - Consultar Equipamento | Lista equipamentos com filtros por: cliente, tipo, marca ou modelo.                                           | Administrador |
-| RF03.03 - Excluir Equipamento   | Remove equipamento (apenas se não estiver vinculado a OS ativa).                                              | Administrador |
+| Requisito                       | Descrição                                                | Ator          |
+| ------------------------------- | -------------------------------------------------------- | ------------- |
+| RF03.01 - Cadastrar Equipamento | Adiciona novo equipamento                                | Administrador |
+| RF03.02 - Consultar Equipamento | Lista de equipamentos existentes                         | Administrador |
+| RF03.03 - Editar Equipamento    | Edita um equipamento que precisa ser alterado/atualizado | Administrador |
+| RF03.04 - Excluir Equipamento   | Remove um equipamento do sistema                         | Administrador |
 
 ---
 
 ### Entidade Ordem de Serviço (OS) - US04 - Manter OS
 
-Uma ordem de serviço (OS) registra a solicitação de serviço para reparo técnico. Possui número único, status, data de abertura, descrição do problema e valor.
-
-| Requisito                  | Descrição                                                                                          | Ator          |
-| -------------------------- | -------------------------------------------------------------------------------------------------- | ------------- |
-| RF02.01 - Abrir OS         | Cria nova OS vinculada a um cliente e equipamento, informando: descrição do problema e prioridade. | Administrador |
-| RF02.02 - Consultar OS     | Lista OS com filtros por: número, cliente, status ou data.                                         | Administrador |
-| RF02.03 - Editar OS        | Atualiza dados da OS (exceto número), apenas se status for "Em andamento".                         | Administrador |
-| RF02.04 - Encerrar OS      | Finaliza OS informando: solução aplicada, peças utilizadas e valor final.                          |
-| RF02.05 - Emitir Relatório | Gera PDF da OS com detalhes do serviço, valores e assinatura do técnico.                           | Administrador |
+| Requisito                  | Descrição                      | Ator          |
+| -------------------------- | ------------------------------ | ------------- |
+| RF02.01 - Cadastrar OS     | Cria nova ordem de serviço     | Administrador |
+| RF02.02 - Consultar OS     | Lista ordes de serviço abertas | Administrador |
+| RF02.03 - Editar OS        | Atualiza dados da OS           | Administrador |
+| RF02.04 - Excluir OS       | Finaliza uma ordem de serviço  | Administrador |
+| RF02.05 - Emitir Relatório | Gera detalhes do serviço       | Administrador |
 
 ---
 
 ### Entidade Item de OS - US05 - Gerenciar Itens
 
-Detalhar serviços específicos realizados em cada OS.
-
-| Código  | Descrição                          | Ator          |
-| ------- | ---------------------------------- | ------------- |
-| RF05.01 | Adicionar item de serviço à OS     | Administrador |
-| RF05.02 | Atualizar descrição/status do item | Administrador |
-| RF05.03 | Listar itens de uma OS específica  | Administrador |
+| Código                   | Descrição                         | Ator          |
+| ------------------------ | --------------------------------- | ------------- |
+| RF05.01 - Adicionar item | Adiciona item de serviço a uma OS | Administrador |
+| RF05.02 - Consultar item | Listar itens de uma OS específica | Administrador |
+| RF05.03 - Editar item    | Atualiza descrição/status do item | Administrador |
+| RF05.04 - Excluir item   | Deleta um item de OS              | Administrador |
 
 ---
 
 ### Entidade Conta - US06 - Manter Conta
 
-Gerenciar pagamentos de serviços realizados. A conta é gerada a partir de uma ordem de serviço e possui valor, método e status de pagamento, data.
-
-| Código  | Descrição                               | Ator          |
-| ------- | --------------------------------------- | ------------- |
-| RF05.01 | Gerar fatura vinculada à OS             | Administrador |
-| RF05.02 | Registrar pagamento e atualizar status  | Administrador |
-| RF05.03 | Consultar faturas por status ou período | Administrador |
-
-#### Descrição das Entidades
+| Código                     | Descrição                          | Ator          |
+| -------------------------- | ---------------------------------- | ------------- |
+| RF05.01 - Adicionar contas | Adiciona conta a partir de uma OS  | Administrador |
+| RF05.01 - Consultar contas | Lista contas existentes            | Administrador |
+| RF05.02 - Editar contas    | Atualiza status/pagamento da conta | Administrador |
+| RF05.03 - Encerrar contas  | Encerra uma conta criada           | Administrador |
 
 ## Lista de Requisitos Não-Funcionais
 
-| Requisito           | Descrição                                                 |
-| ------------------- | --------------------------------------------------------- |
-| RNF01 - Ágil        | Tempo de resposta do sistema < 2s para 95% das operações. |
-| RNF02 - Usabilidade | Interface deve seguir diretrizes de usabilidade           |
+| Requisito           | Descrição                                                           |
+| ------------------- | ------------------------------------------------------------------- |
+| RNF01 - Agilidade   | Tempo de resposta do sistema < 2s para 95% das operações.           |
+| RNF02 - Usabilidade | Interface deve seguir diretrizes de usabilidade simples e intuitiva |
 
 ## Riscos
 
