@@ -12,6 +12,10 @@ classDiagram
         status : enum
         equipamento_id : integer FK
         ordem_servico_id : integer FK
+
+        +atualizarStatus(novo_status: enum) : void
+        +getDescricao() : varchar
+        +associarEquipamento(equipamento_id: integer) : void
     }
 
     class ordem_servico {
@@ -21,6 +25,12 @@ classDiagram
         orcamento : float
         data_criacao : datetime
         pessoa_id : integer FK
+
+        +atualizarStatus(novo_status: enum) : void
+        +calcularOrcamento() : float
+        +adicionarItem(item: item_ordem_servico) : void
+        +removerItem(item_id: integer) : void
+        +getDetalhes() : string
     }
 
     class equipamento {
@@ -31,6 +41,10 @@ classDiagram
         numero_serie : varchar
         data_criacao : datetime
         pessoa_id : integer FK
+
+        +getDetalhes() : string
+        +associarCliente(cliente_id: integer) : void
+        +atualizarInformacoes(marca: varchar, modelo: varchar, numero_serie: varchar) : void
     }
 
     class conta {
@@ -40,15 +54,25 @@ classDiagram
         data_vencimento : datetime
         status : enum
         ordem_servico_id : integer FK
+
+        +efetuarPagamento() : boolean
+        +atualizarStatus(novo_status: enum) : void
+        +calcularMulta(dias_atraso: integer) : float
+        +getDetalhesPagamento() : string
     }
 
-    class pessoa {
+    class cliente {
         id : integer PK
         documento : varchar
         nome : varchar
         telefone : varchar
         email : varchar
         data_criacao : datetime
+
+        +atualizarDados(nome: varchar, telefone: varchar, email: varchar) : void
+        +getInformacoes() : string
+        +listarOrdensServico() : list<ordem_servico>
+        +listarEquipamentos() : list<equipamento>
     }
 
     class endereco {
@@ -59,26 +83,28 @@ classDiagram
         cidade : varchar
         estado : varchar
         pessoa_id : integer FK
+
+        +getEnderecoCompleto() : string
+        +atualizarEndereco(casa: varchar, rua: varchar, bairro: varchar, cidade: varchar, estado: varchar) : void
     }
+
 ```
 
 ## Modelo de Dados (Entidade-Relacionamento)
 
 ```mermaid
 erDiagram
-    service_order ||--o{ service_order_item : "contém"
-    equipment ||--o{ service_order_item : "utilizado em"
-    person ||--o{ address : "possui"
-    person ||--o{ equipment : "cadastra"
-    person ||--o{ service_order : "solicita"
-    service_order ||--o{ bill : "gera"
+    ordem_servico ||--o{ item_ordem_servico : "contém"
+    equipamento ||--o{ item_ordem_servico : "utilizado em"
+    cliente ||--o{ endereco : "possui"
+    cliente ||--o{ equipamento : "cadastra"
+    cliente ||--o{ ordem_servico : "solicita"
+    ordem_servico ||--o{ conta : "gera"
 ```
-
-# Dicionário de Dados - Sistema de Assistência Técnica
 
 # Dicionário de Dados
 
-## Tabela: Pessoa
+## Tabela: Cliente
 
 | Campo        | Tipo     | Tamanho | Obrigatório? | Descrição           | Exemplo            |
 | ------------ | -------- | ------- | ------------ | ------------------- | ------------------ |
@@ -120,7 +146,7 @@ erDiagram
 
 ---
 
-## Tabela: Ordem_Servico
+## Tabela: Ordem de Serviço
 
 | Campo        | Tipo     | Tamanho | Obrigatório? | Descrição            | Exemplo            |
 | ------------ | -------- | ------- | ------------ | -------------------- | ------------------ |
@@ -133,7 +159,7 @@ erDiagram
 
 ---
 
-## Tabela: Item_Ordem_Servico
+## Tabela: Item da Ordem de Serviço
 
 | Campo            | Tipo    | Tamanho | Obrigatório? | Descrição              | Exemplo            |
 | ---------------- | ------- | ------- | ------------ | ---------------------- | ------------------ |
