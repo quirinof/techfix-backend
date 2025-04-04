@@ -122,13 +122,6 @@ classDiagram
         +atualizarStatus(novo_status: enum) : void
     }
 
-    enum statusOS { ABERTA, EM_ANDAMENTO, FINALIZADA, CANCELADA }
-    enum statusItemOS { PENDENTE, EM_EXECUCAO, CONCLUIDO }
-    enum dispositivo { NOTEBOOK, SMARTPHONE, TABLET, DESKTOP, OUTRO }
-    enum metodoPagamento { DINHEIRO, CARTAO_CREDITO, CARTAO_DEBITO, PIX, BOLETO }
-    enum statusConta { PENDENTE, PAGO, ATRASADO, CANCELADO }
-
-
     cliente "1" -- "0..*" endereco
     cliente "1" -- "0..*" equipamento
     cliente "1" -- "0..*" ordem_servico
@@ -137,6 +130,14 @@ classDiagram
     equipamento "1" -- "0..*" item_ordem_servico
 
 ```
+
+#### Descrição de enums
+
+enum statusOS { ABERTA, EM_ANDAMENTO, FINALIZADA, CANCELADA }
+enum statusItemOS { PENDENTE, EM_EXECUCAO, CONCLUIDO }
+enum dispositivo { NOTEBOOK, SMARTPHONE, TABLET, DESKTOP, OUTRO }
+enum metodoPagamento { DINHEIRO, CARTAO_CREDITO, CARTAO_DEBITO, PIX, BOLETO }
+enum statusConta { PENDENTE, PAGO, ATRASADO, CANCELADO }
 
 #### Descrição das entidades
 
