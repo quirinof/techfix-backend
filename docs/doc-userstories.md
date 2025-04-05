@@ -108,3 +108,34 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA03.03**              | Edição dos dados de um equipamento existente                          |
 | **TA03.04**              | Exclusão de equipamento, com confirmação                              |
 | **TA03.05**              | Visualização da lista de equipamentos cadastrados por um cliente      |
+
+### User Story US04 - Manter Ordem de Serviço
+
+|               |                                                                                                                                                                                                                                                                           |
+| ------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Descrição** | Esse processo é responsável por cadastrar, editar, excluir e visualizar as ordens de serviço realizadas para os clientes. Cada ordem de serviço possui uma descrição, status, orçamento, data de criação, cliente associado e itens vinculados (equipamentos e serviços). |
+
+| **Requisitos envolvidos** |                             |
+| ------------------------- | :-------------------------- |
+| US04.RF04.01              | Cadastrar ordem de serviço  |
+| US04.RF04.02              | Consultar ordens de serviço |
+| US04.RF04.03              | Editar ordem de serviço     |
+| US04.RF04.04              | Excluir ordem de serviço    |
+
+|                       |                  |
+| --------------------- | ---------------- |
+| **Prioridade**        | Essencial        |
+| **Estimativa**        | 12 h             |
+| **Tamanho Funcional** | 10 PF            |
+| **Analista**          | Artur            |
+| **Desenvolvedor**     | Halyson, Matheus |
+| **Testador**          | Isayan           |
+
+| Testes de Aceitação (TA) |                                                                                                   |
+| ------------------------ | ------------------------------------------------------------------------------------------------- |
+| **Código**               | **Descrição**                                                                                     |
+| **TA04.01**              | Cadastro de ordem de serviço com cliente e itens válidos                                          |
+| **TA04.02**              | Cadastro com dados inválidos ou incompletos, esperando retorno com mensagens de erro              |
+| **TA04.03**              | Edição de uma ordem de serviço existente                                                          |
+| **TA04.04**              | Exclusão de ordem de serviço com confirmação                                                      |
+| **TA04.05**              | Visualização dos detalhes da ordem de serviço, incluindo cliente, equipamentos e itens associados |
