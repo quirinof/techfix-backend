@@ -139,3 +139,34 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA04.03**              | Edição de uma ordem de serviço existente                                                          |
 | **TA04.04**              | Exclusão de ordem de serviço com confirmação                                                      |
 | **TA04.05**              | Visualização dos detalhes da ordem de serviço, incluindo cliente, equipamentos e itens associados |
+
+### User Story US05 - Manter Itens da Ordem de Serviço
+
+|               |                                                                                                                                                                                            |
+| ------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | Esse processo é responsável por cadastrar, editar, excluir e visualizar os itens vinculados a uma ordem de serviço. Cada item está associado a um equipamento e possui descrição e status. |
+
+| **Requisitos envolvidos** |                                     |
+| ------------------------- | :---------------------------------- |
+| US05.RF05.01              | Cadastrar item na ordem de serviço  |
+| US05.RF05.02              | Consultar itens da ordem de serviço |
+| US05.RF05.03              | Editar item da ordem de serviço     |
+| US05.RF05.04              | Excluir item da ordem de serviço    |
+
+|                       |                  |
+| --------------------- | ---------------- |
+| **Prioridade**        | Essencial        |
+| **Estimativa**        | 10 h             |
+| **Tamanho Funcional** | 8 PF             |
+| **Analista**          | Artur            |
+| **Desenvolvedor**     | Matheus, Halyson |
+| **Testador**          | Isayan           |
+
+| Testes de Aceitação (TA) |                                                                                                        |
+| ------------------------ | ------------------------------------------------------------------------------------------------------ |
+| **Código**               | **Descrição**                                                                                          |
+| **TA05.01**              | Cadastro de item com equipamento associado e descrição válida                                          |
+| **TA05.02**              | Cadastro com dados inválidos, esperando retorno com mensagens de erro                                  |
+| **TA05.03**              | Edição de item existente, atualizando descrição ou status                                              |
+| **TA05.04**              | Exclusão de item de ordem de serviço com confirmação                                                   |
+| **TA05.05**              | Visualização de todos os itens vinculados a uma ordem de serviço, incluindo informações do equipamento |
