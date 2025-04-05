@@ -13,6 +13,8 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | :--------- | :----: | :-------------------------------: | :------ |
 | 01/04/2025 | 0.0.1  | Template e descrição do documento | Matheus |
 | 03/04/2025 | 0.0.2  |  Detalhamento de user story US01  | Matheus |
+| 04/04/2025 | 0.0.3  |  Detalhamento de user story US02  | Matheus |
+| 04/04/2025 | 0.0.4  |  Detalhamento de user story US03  | Matheus |
 
 ### User Story US01 - Manter cliente
 
@@ -75,3 +77,34 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA02.03**              | Edição de um endereço existente                                         |
 | **TA02.04**              | Exclusão de endereço, com confirmação                                   |
 | **TA02.05**              | Visualização da lista de endereços associados a um cliente              |
+
+### User Story US03 - Manter Equipamento
+
+|               |                                                                                                                                                                                                                                                                                          |
+| ------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | Esse processo é responsável por cadastrar, editar, excluir e visualizar os equipamentos associados a um cliente. Cada cliente pode possuir vários equipamentos cadastrados. As informações do equipamento incluem: tipo (dispositivo), marca, modelo, número de série e data de criação. |
+
+| **Requisitos envolvidos** |                        |
+| ------------------------- | :--------------------- |
+| US03.RF03.01              | Cadastrar equipamento  |
+| US03.RF03.02              | Consultar equipamentos |
+| US03.RF03.03              | Editar equipamento     |
+| US03.RF03.04              | Excluir equipamento    |
+
+|                       |                  |
+| --------------------- | ---------------- |
+| **Prioridade**        | Essencial        |
+| **Estimativa**        | 8 h              |
+| **Tamanho Funcional** | 7 PF             |
+| **Analista**          | Artur            |
+| **Desenvolvedor**     | Halyson, Matheus |
+| **Testador**          | Isayan           |
+
+| Testes de Aceitação (TA) |                                                                       |
+| ------------------------ | --------------------------------------------------------------------- |
+| **Código**               | **Descrição**                                                         |
+| **TA03.01**              | Cadastro de equipamento válido associado a um cliente existente       |
+| **TA03.02**              | Cadastro com dados ausentes ou inválidos, esperando mensagens de erro |
+| **TA03.03**              | Edição dos dados de um equipamento existente                          |
+| **TA03.04**              | Exclusão de equipamento, com confirmação                              |
+| **TA03.05**              | Visualização da lista de equipamentos cadastrados por um cliente      |
