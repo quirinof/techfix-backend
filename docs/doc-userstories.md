@@ -15,6 +15,9 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | 03/04/2025 | 0.0.2  |  Detalhamento de user story US01  | Matheus |
 | 04/04/2025 | 0.0.3  |  Detalhamento de user story US02  | Matheus |
 | 04/04/2025 | 0.0.4  |  Detalhamento de user story US03  | Matheus |
+| 05/04/2025 | 0.0.5  |  Detalhamento de user story US04  | Matheus |
+| 05/04/2025 | 0.0.6  |  Detalhamento de user story US05  | Matheus |
+| 05/04/2025 | 0.0.7  |  Detalhamento de user story US06  | Matheus |
 
 ### User Story US01 - Manter cliente
 
@@ -62,7 +65,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 
 |                       |                  |
 | --------------------- | ---------------- |
-| **Prioridade**        | Essencial        |
+| **Prioridade**        | Importante       |
 | **Estimativa**        | 6 h              |
 | **Tamanho Funcional** | 5 PF             |
 | **Analista**          | Artur            |
@@ -139,6 +142,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA04.03**              | Edição de uma ordem de serviço existente                                                          |
 | **TA04.04**              | Exclusão de ordem de serviço com confirmação                                                      |
 | **TA04.05**              | Visualização dos detalhes da ordem de serviço, incluindo cliente, equipamentos e itens associados |
+| **TA04.06**              | Atualização de status da OS, com confirmação de alteração de status                               |
 
 ### User Story US05 - Manter Itens da Ordem de Serviço
 
@@ -170,3 +174,37 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | **TA05.03**              | Edição de item existente, atualizando descrição ou status                                              |
 | **TA05.04**              | Exclusão de item de ordem de serviço com confirmação                                                   |
 | **TA05.05**              | Visualização de todos os itens vinculados a uma ordem de serviço, incluindo informações do equipamento |
+| **TA05.06**              | Atualização de status do item, com confirmação de alteração de status                                  |
+
+### User Story US06 - Manter Conta
+
+|               |                                                                                                                                                                                           |
+| ------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | Esse processo é responsável por cadastrar, editar, excluir e visualizar a conta associada a uma ordem de serviço. A conta inclui valor, data de vencimento, status e método de pagamento. |
+
+| **Requisitos envolvidos** |                           |
+| ------------------------- | :------------------------ |
+| US06.RF06.01              | Cadastrar conta           |
+| US06.RF06.02              | Consultar conta           |
+| US06.RF06.03              | Editar conta              |
+| US06.RF06.04              | Excluir conta             |
+| US06.RF06.05              | Atualizar status da conta |
+
+|                       |                  |
+| --------------------- | ---------------- |
+| **Prioridade**        | Essencial        |
+| **Estimativa**        | 7 h              |
+| **Tamanho Funcional** | 6 PF             |
+| **Analista**          | Artur            |
+| **Desenvolvedor**     | Halyson, Matheus |
+| **Testador**          | Isayan           |
+
+| Testes de Aceitação (TA) |                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------- |
+| **Código**               | **Descrição**                                                                         |
+| **TA06.01**              | Cadastro de conta com valor, método de pagamento e data de vencimento válidos         |
+| **TA06.02**              | Tentativa de cadastro com dados incompletos ou inválidos, esperando mensagens de erro |
+| **TA06.03**              | Edição de conta existente com atualização dos dados                                   |
+| **TA06.04**              | Exclusão da conta vinculada à ordem de serviço com confirmação                        |
+| **TA06.05**              | Atualização do status da conta (ex: de “Pendente” para “Pago”) com sucesso            |
+| **TA06.06**              | Visualização dos dados completos da conta vinculada à ordem de serviço                |
