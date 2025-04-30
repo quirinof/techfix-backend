@@ -12,3 +12,119 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum DeviceType {
+  notebook    
+  smartphone  
+  tablet      
+  desktop     
+  other       
+}
+
+enum ServiceOrderStatus {
+  open         
+  inProgress   
+  completed    
+  canceled     
+}
+
+enum ServiceOrderItemStatus {
+  pending     
+  executing   
+  completed   
+}
+
+enum PaymentMethod {
+  cash          
+  creditCard    
+  debitCard     
+  pix           
+  boleto        
+}
+
+enum BillStatus {
+  pending   
+  paid      
+  overdue   
+
+  @@map("bill_status")
+}
+
+model Customer {
+  id           Int           @id @default(autoincrement())
+  name         String        @db.VarChar(150)
+  phone        String?       @db.VarChar(20)
+  email        String?       @db.VarChar(255)
+  createdAt    DateTime      @default(now())
+  addresses    Address[]
+  equipment    Equipment[]
+  serviceOrders ServiceOrder[]
+
+  @@map("customers")
+}
+
+model Address {
+  id           Int      @id @default(autoincrement())
+  complement   String?  @db.VarChar(255)
+  street       String?  @db.VarChar(150)
+  neighborhood String?  @db.VarChar(150)
+  city         String?  @db.VarChar(100)
+  state        String?  @db.VarChar(2)
+  customer     Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  customerId   Int
+
+  @@map("addresses")
+}
+
+model Equipment {
+  id           Int            @id @default(autoincrement())
+  deviceType   DeviceType
+  brand        String?        @db.VarChar(50)
+  model        String?        @db.VarChar(150)
+  serialNumber String?        @db.VarChar(255)
+  createdAt    DateTime       @default(now())
+  customer     Customer       @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  customerId   Int
+  serviceOrderItems ServiceOrderItem[]
+
+  @@map("equipaments")
+}
+
+model ServiceOrder {
+  id           Int            @id @default(autoincrement())
+  description  String?        @db.Text
+  status       ServiceOrderStatus @default(open)
+  estimate     Decimal?       @db.Decimal(10,2)
+  createdAt    DateTime       @default(now())
+  customer     Customer       @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  customerId   Int
+  items        ServiceOrderItem[]
+  bill         Bill?
+
+  @@map("service_orders")
+}
+
+model ServiceOrderItem {
+  id             Int               @id @default(autoincrement())
+  description    String?           @db.Text
+  status         ServiceOrderItemStatus @default(pending)
+  equipment      Equipment?        @relation(fields: [equipmentId], references: [id], onDelete: SetNull)
+  equipmentId    Int?
+  serviceOrder   ServiceOrder      @relation(fields: [serviceOrderId], references: [id], onDelete: Cascade)
+  serviceOrderId Int
+
+  @@map("service_orders_items")
+}
+
+model Bill {
+  id             Int             @id @default(autoincrement())
+  amount         Decimal         @db.Decimal(10,2)
+  paymentMethod  PaymentMethod
+  dueDate        DateTime      
+  status         BillStatus      @default(pending)
+  serviceOrder   ServiceOrder    @relation(fields: [serviceOrderId], references: [id], onDelete: Cascade)
+  serviceOrderId Int             @unique
+
+  @@map("bills")
+}
+
