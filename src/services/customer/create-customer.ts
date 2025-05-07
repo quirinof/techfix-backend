@@ -1,5 +1,5 @@
 import { CustomerRepository } from "../../repositories/customer-repository";
-import { Customer } from "@prisma/client";
+import { Customer } from "../../../prisma/src/generated/client";
 
 interface CreateCustomerRequest {
   name: string;
