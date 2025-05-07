@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output = "./src/generated/client"
 }
 
 datasource db {
@@ -18,20 +19,26 @@ enum DeviceType {
   smartphone  
   tablet      
   desktop     
-  other       
+  other
+
+  @@map("device_type")       
 }
 
 enum ServiceOrderStatus {
   open         
   inProgress   
   completed    
-  canceled     
+  canceled
+
+  @@map("service_order_status") 
 }
 
 enum ServiceOrderItemStatus {
   pending     
   executing   
-  completed   
+  completed
+
+  @@map("service_order_item_status")
 }
 
 enum PaymentMethod {
@@ -39,13 +46,15 @@ enum PaymentMethod {
   creditCard    
   debitCard     
   pix           
-  boleto        
+  boleto
+
+  @@map("payment_method")        
 }
 
 enum BillStatus {
   pending   
   paid      
-  overdue   
+  overdue
 
   @@map("bill_status")
 }
@@ -60,7 +69,7 @@ model Customer {
   equipment    Equipment[]
   serviceOrders ServiceOrder[]
 
-  @@map("customers")
+  @@map("customer")
 }
 
 model Address {
@@ -73,7 +82,7 @@ model Address {
   customer     Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
   customerId   Int
 
-  @@map("addresses")
+  @@map("address")
 }
 
 model Equipment {
@@ -87,7 +96,7 @@ model Equipment {
   customerId   Int
   serviceOrderItems ServiceOrderItem[]
 
-  @@map("equipaments")
+  @@map("equipment")
 }
 
 model ServiceOrder {
@@ -101,7 +110,7 @@ model ServiceOrder {
   items        ServiceOrderItem[]
   bill         Bill?
 
-  @@map("service_orders")
+  @@map("service_order")
 }
 
 model ServiceOrderItem {
@@ -113,7 +122,7 @@ model ServiceOrderItem {
   serviceOrder   ServiceOrder      @relation(fields: [serviceOrderId], references: [id], onDelete: Cascade)
   serviceOrderId Int
 
-  @@map("service_orders_items")
+  @@map("service_order_item")
 }
 
 model Bill {
@@ -125,6 +134,6 @@ model Bill {
   serviceOrder   ServiceOrder    @relation(fields: [serviceOrderId], references: [id], onDelete: Cascade)
   serviceOrderId Int             @unique
 
-  @@map("bills")
+  @@map("bill")
 }
 
