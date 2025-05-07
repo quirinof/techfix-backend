@@ -1,6 +1,6 @@
-import { Prisma } from "../../../prisma/src/generated/client";
 import { CustomerRepository } from "../customer-repository";
 import { prisma } from "../../lib/prisma";
+import { Prisma } from "@prisma/client";
 
 export class PrismaCustomerRepository implements CustomerRepository {
   async create(data: Prisma.CustomerCreateInput) {
