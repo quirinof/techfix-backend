@@ -5,6 +5,7 @@ export interface FindManyParams {
 }
 export interface CustomerRepository {
   create(data: Prisma.CustomerCreateInput): Promise<Customer>;
+  delete(id: number): Promise<void>;
   findById(id: number): Promise<Customer>;
   findMany({ skip, take }: FindManyParams): Promise<Customer[]>;
   findManyByName(name: string): Promise<Customer[]>;
