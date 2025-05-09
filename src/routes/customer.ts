@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { create } from "../controllers/customer/create";
-import { find } from "../controllers/customer/find";
+import { findById } from "../controllers/customer/find-by-id";
 
 const customerRoutes = Router();
 
 const root = "/customers";
 
 customerRoutes.post(`${root}`, create);
-customerRoutes.get(`${root}/:id`, find);
+customerRoutes.get(`${root}/:id`, findById);
 
 export { customerRoutes };

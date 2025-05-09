@@ -5,7 +5,7 @@ interface CustomerResponse {
   customer: Customer;
 }
 
-export class FindCustomerService {
+export class FindCustomerByIdService {
   constructor(private customerRepository: CustomerRepository) {}
 
   async handle(id: number): Promise<CustomerResponse> {
