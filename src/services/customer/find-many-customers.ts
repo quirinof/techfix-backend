@@ -8,7 +8,7 @@ interface FindManyCustomersResponse {
 export class FindManyCustomersService {
   constructor(private customerRepository: CustomerRepository) {}
 
-  async execute(): Promise<FindManyCustomersResponse> {
+  async handle(): Promise<FindManyCustomersResponse> {
     const customer = await this.customerRepository.findMany();
     return { customer };
   }

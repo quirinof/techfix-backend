@@ -12,7 +12,7 @@ interface FindCustomerByNameResponse {
 export class FindCustomerByNameService {
   constructor(private customerRepository: CustomerRepository) {}
 
-  async execute({
+  async handle({
     customerName,
   }: FindCustomerByNameRequest): Promise<FindCustomerByNameResponse> {
     const customer = await this.customerRepository.findManyByName(

@@ -6,7 +6,7 @@ export async function findCustomerByName(req: Request, res: Response) {
 
   const { name } = req.query as { name: string };
     
-  const { customer } = await findCustomerByNameService.execute({
+  const { customer } = await findCustomerByNameService.handle({
     customerName: name,
   });
 

@@ -4,7 +4,7 @@ import { makeFindManyCustomersService } from "../../services/factories/customer/
 export async function findMany(req: Request, res: Response) {
   const getCustomersService = makeFindManyCustomersService();
   
-  const { customer } = await getCustomersService.execute();
+  const { customer } = await getCustomersService.handle();
 
   res.status(200).json(customer);
 }
