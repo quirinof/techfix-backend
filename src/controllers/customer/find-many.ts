@@ -28,7 +28,7 @@ export async function findMany(req: Request, res: Response) {
     hasMore,
   };
 
-  return res.status(200).json({
+  res.status(200).json({
     data: customers,
     meta,
   });
