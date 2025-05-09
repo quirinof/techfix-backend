@@ -32,4 +32,14 @@ export class PrismaCustomerRepository implements CustomerRepository {
 
     return customer;
   }
+  
+  // update
+  async update(id: number, data: Prisma.CustomerUpdateInput): Promise<Customer> {
+    const customer = await prisma.customer.update({
+      where: { id },
+      data,
+    });
+
+    return customer;
+  }
 }

@@ -3,6 +3,7 @@ import { create } from "../controllers/customer/create";
 import { findById } from "../controllers/customer/find-by-id";
 import { findMany } from "../controllers/customer/find-many";
 import { findCustomerByName } from "../controllers/customer/find-by-name";
+import { update } from "../controllers/customer/update";
 
 const customerRoutes = Router();
 
@@ -12,6 +13,7 @@ customerRoutes.post(`${root}`, create);
 customerRoutes.get(`${root}`, findMany);
 customerRoutes.get(`${root}/search`, findCustomerByName);
 customerRoutes.get(`${root}/:id`, findById);
+customerRoutes.put(`${root}/:id`, update);
 
 
 export { customerRoutes };
