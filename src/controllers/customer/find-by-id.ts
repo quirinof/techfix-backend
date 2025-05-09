@@ -8,5 +8,5 @@ export async function findById(req: Request, res: Response) {
 
   const { customer } = await findCustomerByIdService.handle(Number(id));
 
-  res.status(201).json({ customer });
+  res.status(200).json({ customer });
 };
