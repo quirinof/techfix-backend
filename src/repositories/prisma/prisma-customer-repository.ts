@@ -20,10 +20,16 @@ export class PrismaCustomerRepository implements CustomerRepository {
   }
 
   async findMany() {
-    return prisma.customer.findMany();
+    const customer = await prisma.customer.findMany();
+
+    return customer;
   }
 
   async findManyByName(name: string) {
-    return prisma.customer.findMany({ where: { name } });
+    const customer = await prisma.customer.findMany({
+      where: { name: { contains: name, mode: "insensitive" } },
+    });
+
+    return customer;
   }
 }
