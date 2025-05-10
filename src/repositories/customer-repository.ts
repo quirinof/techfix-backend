@@ -9,5 +9,6 @@ export interface CustomerRepository {
   findById(id: number): Promise<Customer>;
   findMany({ skip, take }: FindManyParams): Promise<Customer[]>;
   findManyByName(name: string): Promise<Customer[]>;
+  update(id: number, data: Prisma.CustomerUpdateInput): Promise<Customer>;
   count(): Promise<number>;
 }
