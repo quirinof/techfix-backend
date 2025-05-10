@@ -14,5 +14,5 @@ export async function update(req: Request, res: Response) {
     phone,
   });
 
-  return res.status(200).json({ customer });
+  res.status(200).json({ customer });
 }
