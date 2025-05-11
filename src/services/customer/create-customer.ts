@@ -1,13 +1,9 @@
-import { Customer, DocumentType } from "@prisma/client";
+import { Customer } from "@prisma/client";
 import { CustomerRepository } from "../../repositories/customer-repository";
+import { z } from "zod";
+import { createCustomerSchema } from "../../schemas/customer-schema";
 
-interface CreateCustomerRequest {
-  name: string;
-  document: string;
-  documentType: DocumentType;
-  email: string;
-  phone: string;
-}
+type CreateCustomerRequest = z.infer<typeof createCustomerSchema>;
 
 interface CreateCustomerResponse {
   customer: Customer;
@@ -31,8 +27,6 @@ export class CreateCustomerService {
       phone,
     });
 
-    return {
-      customer,
-    };
+    return { customer};
   }
 }
