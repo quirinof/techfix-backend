@@ -1,8 +1,10 @@
-import { Customer } from "@prisma/client";
+import { Customer, DocumentType } from "@prisma/client";
 import { CustomerRepository } from "../../repositories/customer-repository";
 
 interface CreateCustomerRequest {
   name: string;
+  document: string;
+  documentType: DocumentType;
   email: string;
   phone: string;
 }
@@ -16,11 +18,15 @@ export class CreateCustomerService {
 
   async handle({
     name,
+    document,
+    documentType,
     email,
     phone,
   }: CreateCustomerRequest): Promise<CreateCustomerResponse> {
     const customer = await this.customerRepository.create({
       name,
+      document,
+      documentType,
       email,
       phone,
     });

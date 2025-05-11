@@ -3,13 +3,15 @@ import { makeUpdateCustomerService } from "../../services/factories/customer/mak
 
 export async function update(req: Request, res: Response) {
   const { id } = req.params;
-  const { name, email, phone } = req.body;
+  const { name, document, documentType, email, phone } = req.body;
 
   const updateCustomerService = makeUpdateCustomerService();
 
   const { customer } = await updateCustomerService.handle({
     id: Number(id),
     name,
+    document,
+    documentType,
     email,
     phone,
   });
