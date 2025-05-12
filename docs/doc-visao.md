@@ -119,7 +119,6 @@ Tabela com o mapeamento dos riscos do projeto, as possíveis soluções e os res
 
 | Data       | Risco                                                                 | Prioridade | Responsável | Status  | Providência/Solução                                                                     |
 | ---------- | --------------------------------------------------------------------- | ---------- | ----------- | ------- | --------------------------------------------------------------------------------------- |
-| 12/05/2025 | Não aprendizado das ferramentas utilizadas pelos componentes do grupo | Baixa       | Todos       | Vigente | Reforçar estudos sobre as ferramentas e aulas com a integrante que conhece a ferramenta |
-| 12/05/2025 | Divisão de tarefas mal sucedida                                       | Baixa       | Todos       | Vigente | Acompanhar de perto o desenvolvimento de cada membro da equipe                          |
-| 12/05/2025 | Não participação de integrantes do grupo nas atividades do projeto    | Alta       | Alguns      | Vigente | 
-Comprometimento das partes envolvidas                                                   |
+| 23/03/2025 | Não aprendizado das ferramentas utilizadas pelos componentes do grupo | Alta      | Todos       | Solucionado | Reforçar estudos sobre as ferramentas e aulas com a integrante que conhece a ferramenta |
+| 23/03/2025 | Divisão de tarefas mal sucedida                                       | Alta      | Todos       | Vigente     | Acompanhar de perto o desenvolvimento de cada membro da equipe                          |
+| 12/05/2025 | Não participação de integrantes do grupo nas atividades do projeto    | Alta      | Alguns      | Vigente     | Comprometimento das partes envolvidas                                                   |
