@@ -8,7 +8,8 @@ export async function create(req: Request, res: Response) {
 
   if (!parseResult.success) {
     const formattedErrors = zodErrorFormatter(parseResult.error);
-    return res.status(400).json(formattedErrors);
+    res.status(400).json(formattedErrors);
+    return;
   }
 
   const createCustomerService = makeCreateCustomerService();
