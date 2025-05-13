@@ -3,10 +3,10 @@ import { DocumentType } from "@prisma/client";
 
 export const customerSchema = {
   name: z.string().min(2, "Name must be at least 2 characters long"),
-  document: z.string().min(11, "Document must be at least 11 characters long").optional(),
+  document: z.string().min(9, "Document must be at least 9 characters long").optional(),
   documentType: z.nativeEnum(DocumentType).optional(),
   email: z.string().email("Invalid email format").optional(),
-  phone: z.string().min(10, "Phone must be at least 10 characters long").optional(),
+  phone: z.string().min(11, "Phone must be at least 11 characters long").optional(),
 };
 
 export const createCustomerSchema = z.object({
