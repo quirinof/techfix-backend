@@ -18,12 +18,13 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 | 05/04/2025 | 0.0.5  |  Detalhamento de user story US04  | Matheus |
 | 05/04/2025 | 0.0.6  |  Detalhamento de user story US05  | Matheus |
 | 05/04/2025 | 0.0.7  |  Detalhamento de user story US06  | Matheus |
+| 12/05/2025 | 0.0.8  |  Atualização de user stories      | Matheus |
 
 ### User Story US01 - Manter cliente
 
-|               |                                                                                                                                                                                                                                            |
+|               |                                                                                                                                     |
 | ------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Descrição** | Esse processo é responsável por fazer cadastro, exclusão, edição e visualização dos clientes da assistência técnica. As informações neste cadastro são: nome, telefone, e-mail, data de criação, e os endereços e equipamentos associados. |
+| **Descrição** | Esse processo é responsável por fazer cadastro, exclusão, edição e visualização dos clientes da assistência técnica. As informações neste cadastro são: nome, telefone, documento, e-mail, data de criação, o(s) endereço(s) e equipamentos. |
 
 | **Requisitos envolvidos** |                    |
 | ------------------------- | :----------------- |
@@ -35,7 +36,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 |                       |                  |
 | --------------------- | ---------------- |
 | **Prioridade**        | Essencial        |
-| **Estimativa**        | 10h              |
+| **Estimativa**        | 12h              |
 | **Tamanho Funcional** | 8 PF             |
 | **Analista**          | Artur            |
 | **Desenvolvedor**     | Halyson, Matheus |
@@ -52,20 +53,20 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 
 ### User Story US02 - Manter Endereço
 
-|               |                                                                                                                                                                                                                                  |
+|               |                                                                                                                                        |
 | ------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Descrição** | Esse processo é responsável por cadastrar, editar, excluir e visualizar os endereços associados a um cliente. Cada cliente pode ter múltiplos endereços, com informações como rua, número, complemento, bairro, cidade e estado. |
 
 | **Requisitos envolvidos** |                     |
 | ------------------------- | :------------------ |
-| US02.RF02.01              | Cadastrar endereço  |
-| US02.RF02.02              | Consultar endereços |
-| US02.RF02.03              | Editar endereço     |
-| US02.RF02.04              | Excluir endereço    |
+| US02.RF02.01              | Cadastrar endereço ao cliente  |
+| US02.RF02.02              | Consultar endereços do cliente |
+| US02.RF02.03              | Editar endereço do cliente     |
+| US02.RF02.04              | Excluir endereço do cliente    |
 
 |                       |                  |
 | --------------------- | ---------------- |
-| **Prioridade**        | Importante       |
+| **Prioridade**        | Baixa            |
 | **Estimativa**        | 6 h              |
 | **Tamanho Funcional** | 5 PF             |
 | **Analista**          | Artur            |
@@ -85,7 +86,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 
 |               |                                                                                                                                                                                                                                                                                          |
 | ------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Descrição** | Esse processo é responsável por cadastrar, editar, excluir e visualizar os equipamentos associados a um cliente. Cada cliente pode possuir vários equipamentos cadastrados. As informações do equipamento incluem: tipo (dispositivo), marca, modelo, número de série e data de criação. |
+| **Descrição** | Esse processo é responsável por cadastrar, editar, excluir e visualizar os equipamentos associados a um cliente. Cada cliente pode possuir vários equipamentos cadastrados. As informações do equipamento incluem: tipo (dispositivo), marca, modelo e número de série. |
 
 | **Requisitos envolvidos** |                        |
 | ------------------------- | :--------------------- |
@@ -192,7 +193,7 @@ Este documento descreve os User Stories criados a partir da Lista de Requisitos 
 
 |                       |                  |
 | --------------------- | ---------------- |
-| **Prioridade**        | Essencial        |
+| **Prioridade**        | Alta             |
 | **Estimativa**        | 7 h              |
 | **Tamanho Funcional** | 6 PF             |
 | **Analista**          | Artur            |
