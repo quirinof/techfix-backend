@@ -1,23 +1,20 @@
 import { Request, Response } from "express";
 import { makeCreateCustomerService } from "../../services/factories/customer/make-create-customer";
+import { createCustomerSchema } from "../../schemas/customer-schema";
+import { zodErrorFormatter } from "../../utils/zod-error-formatter";
 
-const create = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const { name, email, phone } = req.body;
+export async function create(req: Request, res: Response) {
+  const parseResult = createCustomerSchema.safeParse(req.body);
 
-    const createCustomerService = makeCreateCustomerService();
-
-    const { customer } = await createCustomerService.handle({
-      name,
-      email,
-      phone,
-    });
-
-    res.status(201).json({ customer });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Erro interno do servidor" });
+  if (!parseResult.success) {
+    const formattedErrors = zodErrorFormatter(parseResult.error);
+    res.status(400).json(formattedErrors);
+    return;
   }
-};
 
-export { create };
+  const createCustomerService = makeCreateCustomerService();
+
+  const { customer } = await createCustomerService.handle(parseResult.data);
+
+  res.status(201).json({ customer });
+}

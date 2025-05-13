@@ -1,6 +1,6 @@
-import { CustomerRepository } from "../customer-repository";
+import { CustomerRepository, FindManyParams } from "../customer-repository";
 import { prisma } from "../../lib/prisma";
-import { Prisma } from "@prisma/client";
+import { Customer, Prisma } from "@prisma/client";
 
 export class PrismaCustomerRepository implements CustomerRepository {
   async create(data: Prisma.CustomerCreateInput) {
@@ -9,11 +9,49 @@ export class PrismaCustomerRepository implements CustomerRepository {
     return customer;
   }
 
-  async findMany() {
-    return prisma.customer.findMany();
+  async findById(id: number): Promise<Customer> {
+    const customer = await prisma.customer.findUniqueOrThrow({
+      where: {
+        id,
+      },
+    });
+
+    return customer;
+  }
+
+  async findMany({ skip, take }: FindManyParams): Promise<Customer[]> {
+    return await prisma.customer.findMany({
+      skip,
+      take,
+    });
+  }
+
+  async count(): Promise<number> {
+    return await prisma.customer.count();
   }
 
   async findManyByName(name: string) {
-    return prisma.customer.findMany({ where: { name } });
+    const customer = await prisma.customer.findMany({
+      where: { name: { contains: name, mode: "insensitive" } },
+    });
+
+    return customer;
+  }
+
+  async update(id: number, data: Prisma.CustomerUpdateInput): Promise<Customer> {
+    const customer = await prisma.customer.update({
+      where: { id },
+      data,
+    });
+
+    return customer;
+  }
+
+  async delete(id: number) {
+    await prisma.customer.delete({
+      where: {
+        id,
+      },
+    });
   }
 }

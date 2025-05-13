@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "tsx watch src/server.ts",
     "build": "tsup src --out-dir build",
     "start": "node build/server.js"
@@ -17,14 +17,23 @@
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.7.0",
-    "express": "^5.1.0"
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "zod": "^3.24.4"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.18",
     "@types/express": "^5.0.1",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.15.2",
+    "jest": "^29.7.0",
     "prisma": "^6.7.0",
+    "ts-jest": "^29.3.2",
+    "ts-node": "^10.9.2",
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3"
-  }
+  },
+  "packageManager": "pnpm@10.7.0+sha512.6b865ad4b62a1d9842b61d674a393903b871d9244954f652b8842c2b553c72176b278f64c463e52d40fff8aba385c235c8c9ecf5cc7de4fd78b8bb6d49633ab6"
 }

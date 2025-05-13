@@ -7,6 +7,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum DocumentType {
+  cpf
+  rg
+  cnh
+  passaporte
+  cnpj
+
+  @@map("document_type")
+}
+
 enum DeviceType {
   notebook
   smartphone
@@ -55,6 +65,8 @@ enum BillStatus {
 model Customer {
   id            Int            @id @default(autoincrement())
   name          String         @db.VarChar(150)
+  document      String?        @db.VarChar(20)
+  documentType  DocumentType?
   phone         String?        @db.VarChar(20)
   email         String?        @db.VarChar(255)
   createdAt     DateTime       @default(now())
