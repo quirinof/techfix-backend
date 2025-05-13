@@ -79,8 +79,10 @@ model Customer {
 
 model Address {
   id           Int      @id @default(autoincrement())
-  complement   String?  @db.VarChar(255)
+  complement   String?  @db.VarChar(150)
+  number       String?  @db.VarChar(5)
   street       String?  @db.VarChar(150)
+  zipCode      String?  @db.VarChar(10)
   neighborhood String?  @db.VarChar(150)
   city         String?  @db.VarChar(100)
   state        String?  @db.VarChar(2)

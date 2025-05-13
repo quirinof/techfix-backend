@@ -5,16 +5,17 @@ import { findMany } from "../controllers/customer/find-many";
 import { findCustomerByName } from "../controllers/customer/find-by-name";
 import { deleteById } from "../controllers/customer/delete-by-id";
 import { update } from "../controllers/customer/update";
+import { addressRoutes } from "./address";
 
 const customerRoutes = Router();
 
-const root = "/customers";
+customerRoutes.post("/", create);
+customerRoutes.get("/", findMany);
+customerRoutes.get("/search", findCustomerByName);
+customerRoutes.get("/:id", findById);
+customerRoutes.put("/:id", update);
+customerRoutes.delete("/:id", deleteById);
 
-customerRoutes.post(`${root}`, create);
-customerRoutes.get(`${root}`, findMany);
-customerRoutes.get(`${root}/search`, findCustomerByName);
-customerRoutes.get(`${root}/:id`, findById);
-customerRoutes.put(`${root}/:id`, update);
-customerRoutes.delete(`${root}/:id`, deleteById);
+customerRoutes.use("/:customerId/addresses", addressRoutes);
 
 export { customerRoutes };
