@@ -8,4 +8,14 @@ export class PrismaAddressRepository implements AddressRepository {
 
     return address;
   }
+
+  async findManyByCustomerId(customerId: number): Promise<Address[]> {
+    const addresses = await prisma.address.findMany({
+      where: {
+        customerId,
+      },
+    });
+
+    return addresses;
+  }
 }
