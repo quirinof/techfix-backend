@@ -28,4 +28,15 @@ export class PrismaAddressRepository implements AddressRepository {
 
     return address;
   }
+
+  async update(id: number, data: Prisma.AddressUpdateInput): Promise<Address> {
+    const address = await prisma.address.update({
+      where: {
+        id,
+      },
+      data,
+    });
+
+    return address;
+  }
 }
