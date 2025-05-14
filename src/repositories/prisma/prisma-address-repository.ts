@@ -18,4 +18,14 @@ export class PrismaAddressRepository implements AddressRepository {
 
     return addresses;
   }
+
+  async findById(id: number): Promise<Address | null> {
+    const address = await prisma.address.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return address;
+  }
 }
