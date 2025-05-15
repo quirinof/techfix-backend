@@ -4,9 +4,7 @@ import { login } from "../controllers/user/login";
 
 const userRoutes = Router();
 
-const root = "/user";
-
-userRoutes.post(`${root}`, create);
-userRoutes.post(`${root}/login`, login);
+userRoutes.post("/", create);
+userRoutes.post("/login", login);
 
 export { userRoutes };
