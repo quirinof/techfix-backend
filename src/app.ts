@@ -2,6 +2,7 @@ import express from "express";
 import "dotenv/config";
 import { customerRoutes } from "./routes/customer";
 import cors from "cors";
+import { userRoutes } from "./routes/user";
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.use(
 );
 
 app.use("/customers", customerRoutes);
+app.use("/user", userRoutes);
 
 export { app };
