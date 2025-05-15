@@ -15,7 +15,7 @@ app.use(
   })
 );
 
-app.use(customerRoutes);
-app.use(userRoutes);
+app.use("/customers", customerRoutes);
+app.use("/user", userRoutes);
 
 export { app };

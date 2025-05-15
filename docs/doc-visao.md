@@ -20,7 +20,7 @@ de serviço, emissão de relatórios e um controle de contas a receber.
 | Artur   | Analista      | artur.candeia.086@ufrn.edu.br   |
 | Halyson | Desenvolvedor | halysonsa@gmail.com             |
 | Isayan  | Testador      | isayannogueira@gmail.com        |
-| Matheus | Líder técnico | matheus.quirino.122@ufrn.edu.br |
+| Matheus | Desenvolvedor | matheus.quirino.122@ufrn.edu.br |
 
 ### Matriz de Competências
 
@@ -29,7 +29,7 @@ de serviço, emissão de relatórios e um controle de contas a receber.
 | Artur   | HTML, CSS, JavaScript, React, Next                                             |
 | Halyson | HTML, CSS, JavaScript, Node, Nest, Express, Fastify, Prisma, PostgreSQL, MySQL |
 | Isayan  | HTML, CSS, JavaScript, React, Next                                             |
-| Matheus | HTML, CSS, JavaScript, Node, React, Next, PostgreSQL                           |
+| Matheus | HTML, CSS, JavaScript, Node, React, Next, Prisma, PostgreSQL                   |
 
 ## Perfis dos Usuários
 
@@ -119,5 +119,6 @@ Tabela com o mapeamento dos riscos do projeto, as possíveis soluções e os res
 
 | Data       | Risco                                                                 | Prioridade | Responsável | Status  | Providência/Solução                                                                     |
 | ---------- | --------------------------------------------------------------------- | ---------- | ----------- | ------- | --------------------------------------------------------------------------------------- |
-| 25/03/2025 | Não aprendizado das ferramentas utilizadas pelos componentes do grupo | Alta       | Todos       | Vigente | Reforçar estudos sobre as ferramentas e aulas com a integrante que conhece a ferramenta |
-| 25/03/2025 | Divisão de tarefas mal sucedida                                       | Alta       | Todos       | Vigente | Acompanhar de perto o desenvolvimento de cada membro da equipe                          |
+| 23/03/2025 | Não aprendizado das ferramentas utilizadas pelos componentes do grupo | Alta      | Todos       | Solucionado | Reforçar estudos sobre as ferramentas e aulas com a integrante que conhece a ferramenta |
+| 23/03/2025 | Divisão de tarefas mal sucedida                                       | Alta      | Todos       | Vigente     | Acompanhar de perto o desenvolvimento de cada membro da equipe                          |
+| 12/05/2025 | Não participação de integrantes do grupo nas atividades do projeto    | Alta      | Alguns      | Vigente     | Comprometimento das partes envolvidas                                                   |

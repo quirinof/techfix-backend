@@ -10,20 +10,21 @@ classDiagram
     class cliente {
         -int id
         -string nome
+        -string documento
+        -enum tipoDocumento
         -string telefone
         -string email
         -datetime data_criacao
 
         +setNome(string nome) void
+        +setDocumento(string document) void
         +setTelefone(string telefone) void
         +setEmail(string email) void
 
         +getNome() string
+        +getDocumento() string
         +getTelefone() string
         +getEmail() string
-
-        +listarOrdensServico() list
-        +listarEquipamentos() list
     }
 
     class endereco {
@@ -52,16 +53,16 @@ classDiagram
         -string numero_serie
         -datetime data_criacao
         -int cliente_id
-
+        
+        +setDispositivo(enum dispositivo) void
         +setMarca(string marca) void
         +setModelo(string modelo) void
         +setNumeroSerie(string numero_serie) void
 
+        +getDispositivo(enum dispositivo) void
         +getMarca() string
         +getModelo() string
         +getNumeroSerie() string
-
-        +associarCliente(int cliente_id) void
     }
 
     class ordem_servico {
@@ -79,10 +80,6 @@ classDiagram
         +getDescricao() string
         +getStatus() enum
         +getOrcamento() float
-
-        +adicionarItem(item_ordem_servico item) void
-        +removerItem(int item_id) void
-        +listarItensOrdemServico() list item_ordem_servico
     }
 
     class item_ordem_servico {
@@ -97,8 +94,6 @@ classDiagram
 
         +getDescricao() string
         +getStatus() enum
-
-        +associarEquipamento(int equipamento_id) void
     }
 
     class conta {
@@ -118,8 +113,6 @@ classDiagram
         +getMetodoPagamento() enum
         +getDataVencimento() datetime
         +getStatus() enum
-
-        +atualizarStatus(novo_status: enum) : void
     }
 
     cliente "1" -- "0..*" endereco
@@ -135,17 +128,18 @@ classDiagram
 
 | Entidade               | Descrição                                                                                                                                                                                                                                                                                                                           |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **cliente**            | Representa o cliente que solicita os serviços. Possui atributos: `id`, `nome`, `telefone`, `email`, `data_criacao`. Métodos: `setNome()`, `setTelefone()`, `setEmail()`, `getNome()`, `getTelefone()`, `getEmail()`, `listarOrdensServico()`, `listarEquipamentos()`.                                                               |
+| **cliente**            | Representa o cliente que solicita os serviços. Possui atributos: `id`, `nome`, `documento`, `tipoDocumento`, `telefone`, `email`, `data_criacao`. Métodos: `setNome()`, `setDocumento()` `setTelefone()`, `setEmail()`, `getNome()`, `getDocumento()`,  `getTelefone()`, `getEmail()`.                                                               |
 | **endereco**           | Representa o endereço de um cliente. Atributos: `id`, `complemento`, `rua`, `bairro`, `cidade`, `estado`, `pessoa_id`. Métodos: `setComplemento()`, `setRua()`, `setBairro()`, `setCidade()`, `setEstado()`, `getEnderecoCompleto()`.                                                                                               |
-| **equipamento**        | Equipamento do cliente que será consertado. Atributos: `id`, `dispositivo`, `marca`, `modelo`, `numero_serie`, `data_criacao`, `pessoa_id`. Métodos: `setMarca()`, `setModelo()`, `setNumeroSerie()`, `getMarca()`, `getModelo()`, `getNumeroSerie()`, `associarCliente()`.                                                         |
-| **ordem_servico**      | Representa uma ordem de serviço solicitada por um cliente. Atributos: `id`, `descricao`, `status`, `orcamento`, `data_criacao`, `pessoa_id`. Métodos: `setDescricao()`, `setStatus()`, `setOrcamento()`, `getDescricao()`, `getStatus()`, `getOrcamento()`, `adicionarItem()`, `removerItem()`, `listarItensOrdemServico()`.        |
-| **item_ordem_servico** | Itens da ordem de serviço, representando partes do serviço realizadas em um equipamento. Atributos: `id`, `descricao`, `status`, `equipamento_id`, `ordem_servico_id`. Métodos: `setDescricao()`, `setStatus()`, `getDescricao()`, `getStatus()`, `associarEquipamento()`.                                                          |
-| **conta**              | Representa a cobrança de uma ordem de serviço. Atributos: `id`, `valor`, `metodo_pagamento`, `data_vencimento`, `status`, `ordem_servico_id`. Métodos: `setValor()`, `setMetodoPagamento()`, `setDataVencimento()`, `setStatus()`, `getValor()`, `getMetodoPagamento()`, `getDataVencimento()`, `getStatus()`, `atualizarStatus()`. |
+| **equipamento**        | Equipamento do cliente que será consertado. Atributos: `id`, `dispositivo`, `marca`, `modelo`, `numero_serie`, `data_criacao`, `pessoa_id`. Métodos: `setMarca()`, `setDispositivo()`, `setModelo()`, `setNumeroSerie()`, `getMarca()`, `getDispositivo()`, `getModelo()`, `getNumeroSerie()`.                                                         |
+| **ordem_servico**      | Representa uma ordem de serviço solicitada por um cliente. Atributos: `id`, `descricao`, `status`, `orcamento`, `data_criacao`, `pessoa_id`. Métodos: `setDescricao()`, `setStatus()`, `setOrcamento()`, `getDescricao()`, `getStatus()`, `getOrcamento()`.        |
+| **item_ordem_servico** | Itens da ordem de serviço, representando partes do serviço realizadas em um equipamento. Atributos: `id`, `descricao`, `status`, `equipamento_id`, `ordem_servico_id`. Métodos: `setDescricao()`, `setStatus()`, `getDescricao()`, `getStatus()`.                                                          |
+| **conta**              | Representa a cobrança de uma ordem de serviço. Atributos: `id`, `valor`, `metodo_pagamento`, `data_vencimento`, `status`, `ordem_servico_id`. Métodos: `setValor()`, `setMetodoPagamento()`, `setDataVencimento()`, `setStatus()`, `getValor()`, `getMetodoPagamento()`, `getDataVencimento()`, `getStatus()`. |
 
 #### Descrição de enums
 
 | Enum            | Descrição                                               |
 | --------------- | ------------------------------------------------------- |
+| 
 | statusOS        | ABERTA, EM_ANDAMENTO, FINALIZADA ou CANCELADA.          |
 | statusItemOS    | PENDENTE, EM_EXECUCAO ou CONCLUIDO.                     |
 | dispositivo     | NOTEBOOK, SMARTPHONE, TABLET, DESKTOP ou OUTRO.         |
@@ -160,6 +154,7 @@ classDiagram
 | ------------ | -------- | ------- | ------------ | ------------------- | ------------------ |
 | id           | SERIAL   | -       | PK           | ID único            | 1                  |
 | nome         | VARCHAR  | 100     | Sim          | Nome completo       | "João da Silva"    |
+| documento    | VARCHAR  | 20      | Sim          | CPF, RG, CNPJ, etc  | "123.456.789-00"   |
 | telefone     | VARCHAR  | 20      | Não          | Telefone de contato | "(11) 98765-4321"  |
 | email        | VARCHAR  | 100     | Não          | E-mail válido       | "joao@email.com"   |
 | data_criacao | DATETIME | -       | Sim          | Data de cadastro    | "2024-01-15 10:30" |

@@ -17,3 +17,32 @@ O projeto seguirá o padrão de arquitetura cliente-servidor, utilizando REST ap
 | Backend              | REST                      | Node.js, Express.js, Typescript |
 | Build                | Imagem Docker             | Docker e Dockerfile             |
 | Deploy               | Container Docker          | Docker compose                  |
+
+## Representação dos Mecanismos
+
+```mermaid
+graph TD
+
+subgraph Frontend [Frontend - Next.js + TypeScript]
+    UI[Usuário]
+    App[Next.js App]
+    Axios[Axios HTTP Client]
+    UI --> App --> Axios
+end
+
+subgraph Backend [Backend - Node.js + Express]
+    ExpressApp[Express App - REST API]
+    Service[Serviços - Use Cases]
+    Repo[Repositórios - Prisma]
+    DBConn[Prisma ORM]
+    Axios --> ExpressApp
+    ExpressApp --> Service --> Repo --> DBConn
+end
+
+subgraph Database [Banco de Dados]
+    PostgreSQL[(PostgreSQL)]
+    DBConn --> PostgreSQL
+end
+```
+
+
