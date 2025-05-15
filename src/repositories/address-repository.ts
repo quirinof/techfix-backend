@@ -5,4 +5,5 @@ export interface AddressRepository {
   findManyByCustomerId(customerId: number): Promise<Address[]>;
   findById(id: number): Promise<Address | null>;
   update(id: number, data: Prisma.AddressUpdateInput): Promise<Address>;
+  delete(id: number): Promise<void>;
 }
