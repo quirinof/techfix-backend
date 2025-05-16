@@ -2,14 +2,14 @@ import { Address } from "@prisma/client";
 import { AddressRepository } from "../../repositories/address-repository";
 
 interface CreateAddressRequest {
-  customer: number;
+  customerId: number;
   street: string;
   number: string;
-  complement: string;
+  complement?: string | null;
   neighborhood: string;
   city: string;
   state: string;
-  zipCode: string;
+  zipCode?: string | null;
 }
 
 interface CreateAddressResponse {
@@ -20,7 +20,7 @@ export class CreateAddressService {
   constructor(private addressRepository: AddressRepository) {}
 
   async handle({
-    customer,
+    customerId,
     street,
     number,
     complement,
@@ -30,7 +30,7 @@ export class CreateAddressService {
     zipCode,
   }: CreateAddressRequest): Promise<CreateAddressResponse> {
     const address = await this.addressRepository.create({
-      customer: { connect: { id: customer } },
+      customer: { connect: { id: customerId } },
       street,
       number,
       complement,
