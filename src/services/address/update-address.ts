@@ -1,16 +1,13 @@
 // update address service
 import { AddressRepository } from "../../repositories/address-repository";
 import { Address } from "@prisma/client";
+import { z } from "zod";
+import { updateAddressSchema } from "../../schemas/address-schema";
 
-interface UpdateAddressRequest {
+type AddressData = z.infer<typeof updateAddressSchema>;
+
+interface UpdateAddressRequest extends AddressData {
   id: number;
-  street: string;
-  number: string;
-  complement: string;
-  neighborhood: string;
-  city: string;
-  state: string;
-  zipCode: string;
 }
 
 interface UpdateAddressResponse {

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { UpdateAddressService } from "../services/address/update-address";
 
 export const addressSchema = z.object({
   street: z
@@ -30,4 +31,8 @@ export const addressSchema = z.object({
     .optional()
     .nullable(),
   customerId: z.number().int(),
+});
+
+export const updateAddressSchema = addressSchema.extend({
+  customerId: z.number().int().optional(),
 });
