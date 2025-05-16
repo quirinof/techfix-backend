@@ -1,16 +1,9 @@
 import { Address } from "@prisma/client";
 import { AddressRepository } from "../../repositories/address-repository";
+import { z } from "zod";
+import { addressSchema } from "../../schemas/address-schema";
 
-interface CreateAddressRequest {
-  customerId: number;
-  street: string;
-  number: string;
-  complement?: string | null;
-  neighborhood: string;
-  city: string;
-  state: string;
-  zipCode?: string | null;
-}
+type CreateAddressRequest = z.infer<typeof addressSchema>;
 
 interface CreateAddressResponse {
   address: Address;
