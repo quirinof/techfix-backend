@@ -19,10 +19,11 @@ export class PrismaAddressRepository implements AddressRepository {
     return addresses;
   }
 
-  async findById(id: number): Promise<Address | null> {
-    const address = await prisma.address.findUnique({
+  async findById(id: number, customerId: number): Promise<Address | null> {
+    const address = await prisma.address.findFirst({
       where: {
         id,
+        customerId,
       },
     });
 
