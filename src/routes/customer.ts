@@ -6,6 +6,7 @@ import { findCustomerByName } from "../controllers/customer/find-by-name";
 import { deleteById } from "../controllers/customer/delete-by-id";
 import { update } from "../controllers/customer/update";
 import { addressRoutes } from "./address";
+import { equipmentRoutes } from "./equipment";
 
 const customerRoutes = Router();
 
@@ -17,5 +18,6 @@ customerRoutes.put("/:id", update);
 customerRoutes.delete("/:id", deleteById);
 
 customerRoutes.use("/:customerId/addresses", addressRoutes);
+customerRoutes.use("/:customerId/equipments", equipmentRoutes);
 
 export { customerRoutes };
