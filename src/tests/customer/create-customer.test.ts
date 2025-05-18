@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { create } from "../controllers/customer/create";
-import { makeCreateCustomerService } from "../services/factories/customer/make-create-customer";
+import { create } from "../../controllers/customer/create";
+import { makeCreateCustomerService } from "../../services/factories/customer/make-create-customer";
 
-jest.mock("./../services/factories/customer/make-create-customer");
+jest.mock("./../../services/factories/customer/make-create-customer");
 
 describe("create customer controller", () => {
   const mockRequest = (body: any): Partial<Request> => ({ body });

@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { deleteById } from "../controllers/customer/delete-by-id";
-import { makeDeleteCustomerByIdService } from "../services/factories/customer/make-delete-customer-by-id";
+import { deleteById } from "../../controllers/customer/delete-by-id";
+import { makeDeleteCustomerByIdService } from "../../services/factories/customer/make-delete-customer-by-id";
 
-jest.mock("../services/factories/customer/make-delete-customer-by-id");
+jest.mock("./../../services/factories/customer/make-delete-customer-by-id");
 
 describe("delete customer controller", () => {
   const mockRequest = (params: any): Partial<Request> => ({ params });

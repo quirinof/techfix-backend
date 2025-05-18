@@ -4,7 +4,10 @@ import { Customer, Prisma } from "@prisma/client";
 
 export class PrismaCustomerRepository implements CustomerRepository {
   async create(data: Prisma.CustomerCreateInput) {
-    const customer = await prisma.customer.create({ data });
+    const customer = await prisma.customer.create({
+      data,
+      include: { addresses: true },
+    });
 
     return customer;
   }
@@ -13,6 +16,9 @@ export class PrismaCustomerRepository implements CustomerRepository {
     const customer = await prisma.customer.findUniqueOrThrow({
       where: {
         id,
+      },
+      include: {
+        addresses: true,
       },
     });
 
@@ -23,6 +29,9 @@ export class PrismaCustomerRepository implements CustomerRepository {
     return await prisma.customer.findMany({
       skip,
       take,
+      include: {
+        addresses: true,
+      },
     });
   }
 
@@ -33,15 +42,22 @@ export class PrismaCustomerRepository implements CustomerRepository {
   async findManyByName(name: string) {
     const customer = await prisma.customer.findMany({
       where: { name: { contains: name, mode: "insensitive" } },
+      include: {
+        addresses: true,
+      },
     });
 
     return customer;
   }
 
-  async update(id: number, data: Prisma.CustomerUpdateInput): Promise<Customer> {
+  async update(
+    id: number,
+    data: Prisma.CustomerUpdateInput
+  ): Promise<Customer> {
     const customer = await prisma.customer.update({
       where: { id },
       data,
+      include: { addresses: true },
     });
 
     return customer;
