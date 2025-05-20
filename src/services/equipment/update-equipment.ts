@@ -1,12 +1,11 @@
 import { EquipmentRepository } from "../../repositories/equipment-repository";
-import { Equipment, DeviceType } from "@prisma/client";
+import { Equipment } from "@prisma/client";
+import { updateEquipmentSchemaType } from "../../schemas/equipment-schema";
 
-interface UpdateEquipmentRequest {
+type updateEquipmentSchema = updateEquipmentSchemaType;
+
+interface UpdateEquipmentRequest extends updateEquipmentSchema {
   id: number;
-  deviceType: DeviceType;
-  brand: string;
-  model: string;
-  serialNumber: string;
 }
 
 interface UpdateEquipmentResponse {
@@ -16,19 +15,8 @@ interface UpdateEquipmentResponse {
 export class UpdateEquipmentService {
   constructor(private equipmentRepository: EquipmentRepository) {}
 
-  async handle({
-    id,
-    deviceType,
-    brand,
-    model,
-    serialNumber,
-  }: UpdateEquipmentRequest): Promise<UpdateEquipmentResponse> {
-    const equipment = await this.equipmentRepository.update(id, {
-      deviceType,
-      brand,
-      model,
-      serialNumber,
-    });
+  async handle(req: UpdateEquipmentRequest): Promise<UpdateEquipmentResponse> {
+    const equipment = await this.equipmentRepository.update(req.id, { ...req });
 
     return { equipment };
   }

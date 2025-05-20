@@ -13,9 +13,14 @@ export const equipmentSchema = z.object({
     .optional(),
   serialNumber: z
     .string()
-    .min(8, "Serial number must be at least 2 characters long")
+    .min(8, "Serial number must be at least 8 characters long")
     .optional(),
   customerId: z.number().int(),
 });
 
+export const updateEquipmentSchema = equipmentSchema.extend({
+  customerId: z.number().int().optional(),
+});
+
 export type equipmentSchemaType = z.infer<typeof equipmentSchema>;
+export type updateEquipmentSchemaType = z.infer<typeof updateEquipmentSchema>;
