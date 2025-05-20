@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { DeviceType } from "@prisma/client";
 
-export const equipmentSchema = {
+export const equipmentSchema = z.object({
   deviceType: z.nativeEnum(DeviceType),
   brand: z
     .string()
@@ -15,4 +15,7 @@ export const equipmentSchema = {
     .string()
     .min(8, "Serial number must be at least 2 characters long")
     .optional(),
-};
+  customerId: z.number().int(),
+});
+
+export type equipmentSchemaType = z.infer<typeof equipmentSchema>;

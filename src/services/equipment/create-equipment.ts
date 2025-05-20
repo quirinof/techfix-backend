@@ -1,14 +1,8 @@
-// create equipment
-import { Equipment, DeviceType } from "@prisma/client";
+import { Equipment } from "@prisma/client";
 import { EquipmentRepository } from "../../repositories/equipment-repository";
+import { equipmentSchemaType } from "../../schemas/equipment-schema";
 
-interface CreateEquipmentRequest {
-  deviceType: DeviceType;
-  brand: string;
-  model: string;
-  serialNumber: string;
-  customer: number;
-}
+type CreateEquipmentRequest = equipmentSchemaType;
 
 interface CreateEquipmentResponse {
   equipment: Equipment;
@@ -17,19 +11,10 @@ interface CreateEquipmentResponse {
 export class CreateEquipmentService {
   constructor(private equipmentRepository: EquipmentRepository) {}
 
-  async handle({
-    deviceType,
-    brand,
-    model,
-    serialNumber,
-    customer,
-  }: CreateEquipmentRequest): Promise<CreateEquipmentResponse> {
+  async handle(req: CreateEquipmentRequest): Promise<CreateEquipmentResponse> {
     const equipment = await this.equipmentRepository.create({
-      deviceType,
-      brand,
-      model,
-      serialNumber,
-      customer: { connect: { id: customer } },
+      ...req,
+      customer: { connect: { id: req.customerId } },
     });
 
     return { equipment };
