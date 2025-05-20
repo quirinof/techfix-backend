@@ -10,7 +10,8 @@ export async function update(req: Request, res: Response) {
 
   if (!parseResult.success) {
     const formattedErrors = zodErrorFormatter(parseResult.error);
-    return res.status(400).json({ errors: formattedErrors });
+    res.status(400).json({ errors: formattedErrors });
+    return;
   }
 
   const updateEquipmentService = makeUpdateEquipmentService();
