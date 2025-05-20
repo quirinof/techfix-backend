@@ -11,6 +11,6 @@ export async function deleteById(req: Request, res: Response) {
 
     res.status(204).send();
   } catch (err) {
-    res.status(400).send;
+    res.status(400).send();
   }
 }
