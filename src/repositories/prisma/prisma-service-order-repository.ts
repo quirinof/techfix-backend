@@ -24,4 +24,26 @@ export class PrismaServiceOrderRepository implements ServiceOrderRepository {
     const count = await prisma.serviceOrder.count();
     return count;
   }
+
+  findById(id: number): Promise<ServiceOrder | null> {
+    return prisma.serviceOrder.findUnique({
+      where: { id },
+    });
+  }
+
+  update(
+    id: number,
+    data: Prisma.ServiceOrderUpdateInput
+  ): Promise<ServiceOrder> {
+    return prisma.serviceOrder.update({
+      where: { id },
+      data,
+    });
+  }
+
+  async delete(id: number): Promise<void> {
+    await prisma.serviceOrder.delete({
+      where: { id },
+    });
+  }
 }
