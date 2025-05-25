@@ -6,7 +6,7 @@ export class PrismaCustomerRepository implements CustomerRepository {
   async create(data: Prisma.CustomerCreateInput) {
     const customer = await prisma.customer.create({
       data,
-      include: { addresses: true, equipment: true },
+      include: { addresses: true, equipment: true, serviceOrders: true },
     });
 
     return customer;
@@ -20,6 +20,7 @@ export class PrismaCustomerRepository implements CustomerRepository {
       include: {
         addresses: true,
         equipment: true,
+        serviceOrders: true,
       },
     });
 
@@ -33,6 +34,7 @@ export class PrismaCustomerRepository implements CustomerRepository {
       include: {
         addresses: true,
         equipment: true,
+        serviceOrders: true,
       },
     });
   }
@@ -47,6 +49,7 @@ export class PrismaCustomerRepository implements CustomerRepository {
       include: {
         addresses: true,
         equipment: true,
+        serviceOrders: true,
       },
     });
 
@@ -60,7 +63,7 @@ export class PrismaCustomerRepository implements CustomerRepository {
     const customer = await prisma.customer.update({
       where: { id },
       data,
-      include: { addresses: true, equipment: true },
+      include: { addresses: true, equipment: true, serviceOrders: true },
     });
 
     return customer;
