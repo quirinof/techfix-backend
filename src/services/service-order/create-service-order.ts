@@ -5,11 +5,7 @@ import { Decimal } from "@prisma/client/runtime/library";
 interface CreateServiceOrderRequest {
   description: string;
   estimate: Decimal;
-  customer: {
-    connect: {
-      id: number;
-    };
-  };
+  customerId: number;
 }
 
 interface CreateServiceOrderResponse {
@@ -22,12 +18,12 @@ export class CreateServiceOrderService {
   async handle({
     description,
     estimate,
-    customer,
+    customerId,
   }: CreateServiceOrderRequest): Promise<CreateServiceOrderResponse> {
     const serviceOrder = await this.serviceOrderRepository.create({
       description,
       estimate,
-      customer,
+      customer: { connect: { id: customerId } },
     });
 
     return { serviceOrder };
