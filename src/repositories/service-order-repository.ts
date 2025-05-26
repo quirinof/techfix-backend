@@ -7,7 +7,7 @@ export interface FindManyParams {
 
 export interface ServiceOrderRepository {
   create(data: Prisma.ServiceOrderCreateInput): Promise<ServiceOrder>;
-  findMany(data: FindManyParams): Promise<ServiceOrder[]>;
+  findMany({ skip, take }: FindManyParams): Promise<ServiceOrder[]>;
   count(): Promise<number>;
   findById(id: number): Promise<ServiceOrder | null>;
   update(
