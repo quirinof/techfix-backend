@@ -9,6 +9,9 @@ export class PrismaServiceOrderRepository implements ServiceOrderRepository {
   async create(data: Prisma.ServiceOrderCreateInput): Promise<ServiceOrder> {
     const serviceOrder = await prisma.serviceOrder.create({
       data,
+      include: {
+        customer: { select: { name: true } },
+      },
     });
     return serviceOrder;
   }
@@ -17,6 +20,9 @@ export class PrismaServiceOrderRepository implements ServiceOrderRepository {
     return await prisma.serviceOrder.findMany({
       skip,
       take,
+      include: {
+        customer: { select: { name: true } },
+      },
     });
   }
 
@@ -28,6 +34,9 @@ export class PrismaServiceOrderRepository implements ServiceOrderRepository {
   findById(id: number): Promise<ServiceOrder | null> {
     return prisma.serviceOrder.findUnique({
       where: { id },
+      include: {
+        customer: { select: { name: true } },
+      },
     });
   }
 
@@ -38,6 +47,9 @@ export class PrismaServiceOrderRepository implements ServiceOrderRepository {
     return prisma.serviceOrder.update({
       where: { id },
       data,
+      include: {
+        customer: { select: { name: true } },
+      },
     });
   }
 
