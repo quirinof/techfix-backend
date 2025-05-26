@@ -18,6 +18,6 @@ app.use(
 
 app.use("/customers", customerRoutes);
 app.use("/user", userRoutes);
-app.use("/service-order", serviceOrderRoutes);
+app.use("/service-orders", serviceOrderRoutes);
 
 export { app };
