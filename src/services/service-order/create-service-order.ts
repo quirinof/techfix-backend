@@ -1,10 +1,9 @@
 import { ServiceOrder } from "@prisma/client";
 import { ServiceOrderRepository } from "../../repositories/service-order-repository";
-import { Decimal } from "@prisma/client/runtime/library";
 
 interface CreateServiceOrderRequest {
   description: string;
-  estimate: Decimal;
+  estimate?: number;
   customerId: number;
 }
 
