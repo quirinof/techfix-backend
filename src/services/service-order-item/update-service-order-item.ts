@@ -4,20 +4,20 @@ import { ServiceOrderItemRepository } from "../../repositories/service-order-ite
 
 type UpdateServiceOrderSchema = UpdateServiceOrderItemSchemaType;
 
-interface UpdateServiceOrderRequest extends UpdateServiceOrderSchema {
+interface UpdateServiceOrderItemRequest extends UpdateServiceOrderSchema {
   id: number;
 }
 
-interface UpdateServiceOrderResponse {
+interface UpdateServiceOrderItemResponse {
   serviceOrderItem: ServiceOrderItem;
 }
 
-export class UpdateServiceOrderService {
+export class UpdateServiceOrderItemService {
   constructor(private serviceOrderItemRepository: ServiceOrderItemRepository) {}
 
   async handle(
-    req: UpdateServiceOrderRequest
-  ): Promise<UpdateServiceOrderResponse> {
+    req: UpdateServiceOrderItemRequest
+  ): Promise<UpdateServiceOrderItemResponse> {
     const serviceOrderItem = await this.serviceOrderItemRepository.update(
       req.id,
       {

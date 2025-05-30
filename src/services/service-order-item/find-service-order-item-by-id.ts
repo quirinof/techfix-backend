@@ -5,7 +5,7 @@ interface ServiceOrderResponse {
   serviceOrderItem: ServiceOrderItem | null;
 }
 
-export class FindServiceOrderByIdService {
+export class FindServiceOrderItemByIdService {
   constructor(private serviceOrderItemRepository: ServiceOrderItemRepository) {}
 
   async handle(id: number): Promise<ServiceOrderResponse> {

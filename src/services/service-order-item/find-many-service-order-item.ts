@@ -11,7 +11,7 @@ interface FindManyServiceOrderItensResponse {
   total: number;
 }
 
-export class FindManyServiceOrdersService {
+export class FindManyServiceOrderItemService {
   constructor(private serviceOrderItemRepository: ServiceOrderItemRepository) {}
 
   async handle({

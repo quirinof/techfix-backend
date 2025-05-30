@@ -1,5 +1,5 @@
 import { ServiceOrderItemRepository } from "../../repositories/service-order-item-repository";
-export class DeleteServiceOrderByIdService {
+export class DeleteServiceOrderItemByIdService {
   constructor(private serviceOrderItemRepository: ServiceOrderItemRepository) {}
 
   async handle(id: number): Promise<void> {
