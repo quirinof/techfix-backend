@@ -1,5 +1,5 @@
 import { Prisma, Bill } from "@prisma/client";
-import { BillRepository } from "../bill-repository";
+import { BillRepository, FindManyParams } from "../bill-repository";
 import { prisma } from "../../lib/prisma";
 
 export class PrismaBillRepository implements BillRepository {
@@ -8,9 +8,16 @@ export class PrismaBillRepository implements BillRepository {
     return bill;
   }
 
-  async findMany(): Promise<Bill[]> {
-    const bills = await prisma.bill.findMany();
+  async findMany({ skip, take }: FindManyParams): Promise<Bill[]> {
+    const bills = await prisma.bill.findMany({
+      skip,
+      take,
+    });
     return bills;
+  }
+
+  async count(): Promise<number> {
+    return await prisma.bill.count();
   }
 
   async findById(id: number): Promise<Bill | null> {
