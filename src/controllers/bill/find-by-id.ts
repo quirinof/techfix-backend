@@ -12,13 +12,6 @@ export async function findById(req: Request, res: Response) {
 
     res.status(200).json({ bill });
   } catch (error) {
-    if (
-      error instanceof Prisma.PrismaClientKnownRequestError &&
-      error.code === "P2025"
-    ) {
-      res.status(404).json({ error: "Bill not found." });
-    } else {
-      res.status(500).json({ error: "Internal server error." });
-    }
+    res.status(500).json({ error: "Internal server error." });
   }
 }
