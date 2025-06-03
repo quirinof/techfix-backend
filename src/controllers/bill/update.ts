@@ -4,6 +4,8 @@ import { updateBillSchema } from "../../schemas/bill-schema";
 import { zodErrorFormatter } from "../../utils/zod-error-formatter";
 
 export async function update(req: Request, res: Response) {
+  const { id } = req.params;
+
   const parseResult = updateBillSchema.safeParse(req.body);
 
   if (!parseResult.success) {
@@ -19,9 +21,9 @@ export async function update(req: Request, res: Response) {
   const updateBillService = makeUpdateBillService();
 
   const { bill } = await updateBillService.handle({
-    ...data,
-    id: Number(req.params.id),
+    id: Number(id),
     dueDate,
+    ...data,
   });
 
   res.status(200).json({ bill });
