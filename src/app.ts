@@ -19,6 +19,10 @@ app.use(
   })
 );
 
+app.get("/hello", (req, res) => {
+  res.send(200);
+});
+
 app.use("/customers", customerRoutes);
 app.use("/user", userRoutes);
 app.use("/equipment", equipmentRoutes);
