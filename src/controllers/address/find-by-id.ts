@@ -13,9 +13,8 @@ export async function findById(req: Request, res: Response) {
   );
 
   if (!address) {
-    return res
-      .status(404)
-      .json({ error: "Address not found for this customer" });
+    res.status(404).json({ error: "Address not found for this customer" });
+    return;
   }
 
   res.status(200).json({

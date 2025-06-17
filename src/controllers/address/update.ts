@@ -10,7 +10,9 @@ export async function update(req: Request, res: Response) {
   const parseResult = updateAddressSchema.safeParse(req.body);
   if (!parseResult.success) {
     const formattedErrors = zodErrorFormatter(parseResult.error);
-    return res.status(400).json({ errors: formattedErrors });
+    res.status(400).json({ errors: formattedErrors });
+
+    return;
   }
 
   const { address } = await updateAddressService.handle({
