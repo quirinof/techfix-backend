@@ -7,6 +7,7 @@ import { serviceOrderRoutes } from "./routes/service-order";
 import { serviceOrderItemRoutes } from "./routes/service-order-item";
 import { equipmentRoutes } from "./routes/equipment";
 import { billRoutes } from "./routes/bill";
+import { authMiddleware } from "./controllers/auth/auth-middleware";
 
 const app = express();
 
@@ -23,8 +24,11 @@ app.get("/hello", (req, res) => {
   res.send(200);
 });
 
-app.use("/customers", customerRoutes);
 app.use("/user", userRoutes);
+app.use(authMiddleware);
+
+// 🔐 Protected Routes
+app.use("/customers", customerRoutes);
 app.use("/equipment", equipmentRoutes);
 app.use("/service-orders", serviceOrderRoutes);
 app.use("/service-order-item", serviceOrderItemRoutes);
