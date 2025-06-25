@@ -26,8 +26,11 @@ export const addressSchema = z.object({
   state: z.string().length(2, "State must be exactly 2 characters long"),
   zipCode: z
     .string()
-    .min(8, "Zip Code must be at least 8 characters long")
-    .max(10, "Zip Code must be at most 10 characters long")
+    .transform((val) => (val.trim() === "" ? undefined : val))
+    .refine(
+      (val) => !val || (val.length >= 8 && val.length <= 10),
+      "Zip Code must be between 8 and 10 characters"
+    )
     .optional()
     .nullable(),
   customerId: z.number().int(),
