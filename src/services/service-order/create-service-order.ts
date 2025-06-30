@@ -14,9 +14,11 @@ export class CreateServiceOrderService {
   async handle(
     req: CreateServiceOrderRequest
   ): Promise<CreateServiceOrderResponse> {
+    const { customerId, ...serviceOrderData } = req;
+
     const serviceOrder = await this.serviceOrderRepository.create({
-      ...req,
-      customer: { connect: { id: req.customerId } },
+      ...serviceOrderData,
+      customer: { connect: { id: customerId } },
     });
 
     return { serviceOrder };
