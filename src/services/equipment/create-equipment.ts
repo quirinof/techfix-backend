@@ -12,9 +12,11 @@ export class CreateEquipmentService {
   constructor(private equipmentRepository: EquipmentRepository) {}
 
   async handle(req: CreateEquipmentRequest): Promise<CreateEquipmentResponse> {
+    const { customerId, ...equipmentData } = req;
+
     const equipment = await this.equipmentRepository.create({
-      ...req,
-      customer: { connect: { id: req.customerId } },
+      ...equipmentData,
+      customer: { connect: { id: customerId } },
     });
 
     return { equipment };

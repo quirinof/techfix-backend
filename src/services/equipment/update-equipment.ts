@@ -16,7 +16,9 @@ export class UpdateEquipmentService {
   constructor(private equipmentRepository: EquipmentRepository) {}
 
   async handle(req: UpdateEquipmentRequest): Promise<UpdateEquipmentResponse> {
-    const equipment = await this.equipmentRepository.update(req.id, { ...req });
+    const equipment = await this.equipmentRepository.update(req.id, {
+      ...req,
+    });
 
     return { equipment };
   }
