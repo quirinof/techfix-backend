@@ -13,11 +13,13 @@ export async function findMany(req: Request, res: Response) {
 
   const page = parseInt(req.query.page as string) || 1;
   const perPage = parseInt(req.query.perPage as string) || 10;
+  const serviceOrderId = parseInt(req.query.serviceOrderId as string);
 
   const { serviceOrderItens, total } = await getServiceOrderItemsService.handle(
     {
       page,
       perPage,
+      serviceOrderId,
     }
   );
 

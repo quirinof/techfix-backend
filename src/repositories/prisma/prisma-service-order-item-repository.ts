@@ -20,8 +20,15 @@ export class PrismaServiceOrderItemRepository
     return serviceOrderItem;
   }
 
-  async findMany({ skip, take }: FindManyParams): Promise<ServiceOrderItem[]> {
+  async findMany({
+    skip,
+    take,
+    serviceOrderId,
+  }: FindManyParams): Promise<ServiceOrderItem[]> {
     return await prisma.serviceOrderItem.findMany({
+      where: {
+        serviceOrderId,
+      },
       skip,
       take,
       include: {

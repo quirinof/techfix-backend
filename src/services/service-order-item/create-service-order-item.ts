@@ -14,9 +14,11 @@ export class CreateServiceOrderItemService {
   async handle(
     req: CreateServiceOrderItemRequest
   ): Promise<CreateServiceOrderItemResponse> {
+    const { equipmentId, serviceOrderId, ...rest } = req;
+
     const serviceOrderItem = await this.serviceOrderItemRepository.create({
-      ...req,
-      equipment: { connect: { id: req.equipmentId } },
+      ...rest,
+      equipment: { connect: { id: equipmentId } },
       serviceOrder: {
         connect: {
           id: req.serviceOrderId,

@@ -4,6 +4,7 @@ import { ServiceOrderItemRepository } from "../../repositories/service-order-ite
 interface FindManyServiceOrderItensRequest {
   page: number;
   perPage: number;
+  serviceOrderId: number;
 }
 
 interface FindManyServiceOrderItensResponse {
@@ -17,11 +18,16 @@ export class FindManyServiceOrderItemService {
   async handle({
     page,
     perPage,
+    serviceOrderId,
   }: FindManyServiceOrderItensRequest): Promise<FindManyServiceOrderItensResponse> {
     const skip = (page - 1) * perPage;
 
     const [serviceOrderItens, total] = await Promise.all([
-      this.serviceOrderItemRepository.findMany({ skip, take: perPage }),
+      this.serviceOrderItemRepository.findMany({
+        skip,
+        take: perPage,
+        serviceOrderId,
+      }),
       this.serviceOrderItemRepository.count(),
     ]);
 
