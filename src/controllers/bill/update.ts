@@ -22,8 +22,8 @@ export async function update(req: Request, res: Response) {
 
   const { bill } = await updateBillService.handle({
     id: Number(id),
-    dueDate,
     ...data,
+    dueDate,
   });
 
   res.status(200).json({ bill });
