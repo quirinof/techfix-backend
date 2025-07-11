@@ -4,14 +4,23 @@ import { prisma } from "../../lib/prisma";
 
 export class PrismaBillRepository implements BillRepository {
   async create(data: Prisma.BillCreateInput): Promise<Bill> {
-    const bill = await prisma.bill.create({ data });
+    const bill = await prisma.bill.create({
+      data,
+    });
     return bill;
   }
 
-  async findMany({ skip, take }: FindManyParams): Promise<Bill[]> {
+  async findMany({
+    skip,
+    take,
+    serviceOrderId,
+  }: FindManyParams): Promise<Bill[]> {
     const bills = await prisma.bill.findMany({
       skip,
       take,
+      where: {
+        serviceOrderId,
+      },
     });
     return bills;
   }

@@ -115,7 +115,7 @@ model ServiceOrder {
   customer    Customer           @relation(fields: [customerId], references: [id], onDelete: Cascade)
   customerId  Int
   items       ServiceOrderItem[]
-  bill        Bill?
+  bill        Bill[]
 
   @@map("service_order")
 }
@@ -139,7 +139,7 @@ model Bill {
   dueDate        DateTime
   status         BillStatus    @default(pending)
   serviceOrder   ServiceOrder  @relation(fields: [serviceOrderId], references: [id], onDelete: Cascade)
-  serviceOrderId Int           @unique
+  serviceOrderId Int
 
   @@map("bill")
 }

@@ -13,10 +13,12 @@ export async function findMany(req: Request, res: Response) {
 
   const page = parseInt(req.query.page as string) || 1;
   const perPage = parseInt(req.query.perPage as string) || 10;
+  const serviceOrderId = parseInt(req.query.serviceOrderId as string);
 
   const { bills, total } = await findManyBillsService.handle({
     page,
     perPage,
+    serviceOrderId,
   });
 
   const hasMore = page * perPage < total;
